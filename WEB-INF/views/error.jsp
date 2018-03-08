@@ -24,7 +24,7 @@
     </header>
 
     <div class="content">
-      <img class="bit-img error" src="http://iph.href.lu/375x250?text=375x250">
+      <img class="bit-img error" src="https://dummyimage.com/375x250">
       <div class="content-block">
         <p><a href="#" class="button error button-big button-round">轻触重连</a></p>
       </div>

@@ -40,7 +40,7 @@
         <ul>
           <li>
             <div class="item-content mine">
-              <div class="item-media"><img class="radius" src="http://iph.href.lu/250x250?text=250x250" style="width: 4rem;"></div>
+              <div class="item-media"><img class="radius" src="https://dummyimage.com/250x250" style="width: 4rem;"></div>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title mine">

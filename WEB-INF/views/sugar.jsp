@@ -60,7 +60,7 @@
 		<c:forEach var="item" items="${candy}">
           <li>
             <a href="${item.key}" class="item-link item-content">
-              <div class="item-media"><img src="http://iph.href.lu/50x50?text=50x50" style="width: 2.5rem;"></div>
+              <div class="item-media"><img src="https://dummyimage.com/50x50" style="width: 2.5rem;"></div>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title type"><c:out value="${item.key}" /></div>

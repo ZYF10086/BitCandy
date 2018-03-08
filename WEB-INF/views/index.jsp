@@ -48,8 +48,13 @@
     </nav>
 
     <div class="content">
-      <img class="bit-img" src="http://iph.href.lu/375x100?text=375x100">
-      <div class="content-block bit infinite-scroll" data-distance="50">
+      <img class="bit-img" src="https://dummyimage.com/375x100">
+      <div class="content-block bit infinite-scroll pull-to-refresh-content" data-distance="50">
+        <!-- 默认的下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
+          <div class="preloader"></div>
+          <div class="pull-to-refresh-arrow"></div>
+        </div>
         <div class="content-card"></div>
         <!-- 加载提示符 -->
           <div class="infinite-scroll-preloader">
@@ -61,16 +66,21 @@
   <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
+  <!-- 判断网络是否可用，不可用时显示toast提示 -->
   <script>
-    $.init()
+    if (navigator.onLine) 
+       {} 
+    else {$.toast("无可用网络，请检查网络设置~");}     
+  </script>
+  <script>
     // 加载flag
     var loading = false;
     
     // 最多可加载的条目
-    var maxItems = 100;
+    var maxItems = 10;
 
     // 每次加载添加多少条目
-    var itemsPerLoad = 4;
+    var itemsPerLoad = 5;
     
     //数据的条数
     var c = <c:out value="${result.size()}" />;
@@ -108,8 +118,8 @@
 	    +	        			'<li>'
 	    +	        				'<a href="third.html" class="item-link item-content">'
 	    +	        					'<div class="item-media">'
-	    +	        						'<img class="bit-hot" src="http://iph.href.lu/30x15?text=30x15">'
-	    +	        						'<img src="http://iph.href.lu/50x50?text=50x50" width="50">'
+	    +	        						'<img class="bit-hot" src="https://dummyimage.com/30x15">'
+	    +	        						'<img src="https://dummyimage.com/50x50" width="50">'
 	    +	        					'</div>'
 	    +	        					'<div class="item-inner">'
 	    +	        						'<div class="item-title-row">'
@@ -134,7 +144,7 @@
 
     // 上次加载的序号
 
-    var lastIndex = 4;
+    var lastIndex = 5;
 
     // 注册'infinite'事件处理函数
     $(document).on('infinite', '.infinite-scroll', function () {
@@ -168,15 +178,20 @@
         $.refreshScroller();
       }, 500);
     });
- 
-
   </script>
-   <!-- 判断网络是否可用，不可用时显示toast提示 -->
   <script>
-    if (navigator.onLine) 
-       {} 
-    else {$.toast("无可用网络，请检查网络设置~");}     
+    $.init();
+    $.initPullToRefresh('.pull-to-refresh-content');
+    // 添加'refresh'监听器
+    $(document).on('refresh', '.pull-to-refresh-content', function (e) {
+      // 模拟2s的加载过程
+      setTimeout(function () {
+        $.pullToRefreshDone('.pull-to-refresh-content');
+      }, 1000);
+      $.destroyPullToRefresh(ptrContent) //销毁/禁用 下拉刷新
+    });
   </script>
+
 </body>
 
 </html>

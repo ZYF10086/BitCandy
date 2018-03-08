@@ -26,8 +26,8 @@
 
 		
     <div class="content">
-      <img class="bit-img" src="http://iph.href.lu/375x150?text=375x150">
-      <form action="register" method=post >
+      <img class="bit-img" src="https://dummyimage.com/375x150">
+      <form action="register" method="post">
       <div class="list-block">
         <ul>
           <li>
@@ -69,7 +69,7 @@
         </ul>
       </div>
       <div class="content-block">
-        <div class="col-50"><input type=submit class="button button-big button-fill button-danger login" value="注册"></div>
+        <div class="col-50"><input type="submit" class="button button-big button-fill button-danger login" value="注册"></div>
         <div class="row">
           <div class="content-block-title login">点击注册即同意<a href="#">《用户服务协议》</a></div>
         </div>

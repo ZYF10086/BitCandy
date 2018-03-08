@@ -25,7 +25,7 @@
     </header>
 
     <div class="content">
-      <img class="bit-img" src="http://iph.href.lu/375x150?text=375x150">
+      <img class="bit-img" src="https://dummyimage.com/375x150">
       <div class="list-block">
         <ul>
           <li>
