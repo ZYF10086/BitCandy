@@ -1,0 +1,169 @@
+.content-block.bit {
+    margin-top: 0;
+}
+
+.bar.bar-nav.bit {
+    background-color: #C20C0C;
+}
+
+a.bit,
+.title.bit {
+    color: #ffffff;
+}
+
+.bar-tab .tab-item.active,
+.bar-tab .tab-item:active {
+    color: #C20C0C;
+}
+
+.bit-img {
+    width: 100%;
+}
+
+.bit-hot {
+    position: relative;
+    top: -1.88rem;
+    left: -0.75rem;
+}
+
+.bit-hot.seat {
+    min-width: 1.5rem;
+}
+
+.list-block .item-subtitle.bit{
+    font-size: .65rem;
+}
+
+.item-title.bit {
+    line-height: 2;
+}
+
+.card-content-inner.bit {
+    font-size: 1.5rem;
+}
+
+
+.card-content-inner.bit-account {
+    font-size: 1.5rem;
+    line-height: 1;
+    padding-bottom: 0;
+}
+
+.card-content-inner.bit-change {
+    font-size: 1rem;
+    color: #959595;
+    padding: 0 0 0.75rem 0;
+}
+
+.item-title.type {
+    margin-top: 1.2rem;
+}
+
+.item-title.date {
+    font-size: 0.75rem;
+    color: #959595;
+    margin-top: 0.65rem;
+}
+
+.item-title.price {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.item-title.price.account {
+    margin-top: 0.5rem;
+}
+
+.item-title.change {
+    font-size: 0.7rem;
+    color: #959595;
+}
+
+.item-title.info {
+    font-size: 0.75rem;
+    color: #959595;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.item-title.mine {
+    margin-top: 1.5em;
+    margin-left: 0.5rem;
+}
+
+.badge.no {
+    background-color: #ff0000;
+    border-radius: 20rem;
+    padding: 0.2rem;
+    height: 0;
+    margin-top: auto;
+    margin-bottom: auto; 
+    margin-right: 0.2rem;
+}
+
+.list-block.mine {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    background-color: #959595;
+}
+
+.radius {
+    border-radius: 10rem;
+}
+
+.item-content.mine {
+    padding-top: 2rem;
+    padding-bottom: 0.8rem;
+}
+
+.content-block-title.login{
+    margin: 1.5rem .7rem;
+    float: left;
+}
+
+.content-block-title.login1{
+    margin: 1.5rem .1rem;
+    float: right;
+}
+
+.button-danger.button-fill.login{
+    background-color: #C20C0C;
+}
+
+.button-danger.button-fill.login.active,
+.button-danger.button-fill.login:active{
+    background-color: #f00b0d;
+}
+
+.button-success.button-fill.login{
+    background-color: #3caf36;
+}
+
+.button-success.button-fill.login.active,
+.button-success.button-fill.login:active{
+    background-color: #32d32a;
+}
+
+.button.button-fill.button-big.telephone{
+    line-height: 1.4rem;
+    font-size: .7rem;
+    height: 1.4rem;
+}
+
+.card.install{
+    margin:.5rem 0 0 0;
+}
+
+.button-danger.button-fill.install{
+    background-color: #C20C0C;
+    margin-top: 1rem;
+}
+
+.bit-img.error{
+    margin-top: 5rem; 
+}
+
+.button.error{
+    border: 1px solid #c20c0c;
+    color: #c20c0c;
+}
