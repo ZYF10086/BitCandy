@@ -38,8 +38,8 @@
       </a>
     </nav>
     <div class="content infinite-scroll ">
-      <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: absolute;">
-      <div class="content-block bit pull-to-refresh-content" data-distance="50">
+      <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: relative; z-index: 999;">
+      <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
         <!-- 默认的下拉刷新层 -->
         <div class="pull-to-refresh-layer">
             <div class="preloader"></div>
@@ -50,6 +50,7 @@
           <div class="infinite-scroll-preloader">
             <div class="preloader"></div>
           </div>
+          <div id="end" style="text-align: center; font-size: .7rem;"></div>
         </div>
       </div>
       </div>
@@ -99,40 +100,36 @@
 	
     function addItems(number, lastIndex) {
       // 生成新条目的HTML
-     var html = '';
-	 for (var i = lastIndex; i < lastIndex + number; i++) {
-		 if(i<c){
-				html += 
-					'<div class="card">'
-			+	        '<div class="card-content">'
-      
-			+	        	'<div class="list-block media-list">'
-      
-			+	        		'<ul>'
-			+	        			'<li>'
-          +                   '<span class="bit-hot">HOT</span>'
-      
-			+	        				'<a href="third.html" class="item-link item-content">'
-
-			+	        					'<div class="item-media">'
-			+	        						'<img src="https://dummyimage.com/50x50" width="50">'
-			+	        					'</div>'
-			+	        					'<div class="item-inner">'
-			+	        						'<div class="item-title-row">'
-			+	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
-			+	        							'<div class="item-subtitle bit">'+resultArray[i][3]+'人已登记</div>'
-      +                     '</div>' 
-      +                     '<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
-			+	        					'</div>'
-			+	        				'</a>'
-			+	        			'</li>'
-			+	        		'</ul>'
-			+	        	'</div>'
-			+	        '</div>'
-			+       '</div>';
-				cardNum ++;
-		}
-	 }
+      var html = '';
+      for (var i = lastIndex; i < lastIndex + number; i++) {
+        if(i<c){
+            html += 
+                '<div class="card">'
+            +	        '<div class="card-content">'
+            +	        	'<div class="list-block media-list">'
+            +	        		'<ul>'
+            +	        			'<li>'
+            +                   '<span class="bit-hot">HOT</span>'
+            +	        				'<a href="third.html" class="item-link item-content">'
+            +	        					'<div class="item-media">'
+            +	        						'<img src="https://dummyimage.com/50x50" width="50">'
+            +	        					'</div>'
+            +	        					'<div class="item-inner">'
+            +	        						'<div class="item-title-row">'
+            +	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
+            +	        							'<div class="item-subtitle bit">'+resultArray[i][3]+'人已登记</div>'
+            +                     '</div>' 
+            +                     '<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
+            +	        					'</div>'
+            +	        				'</a>'
+            +	        			'</li>'
+            +	        		'</ul>'
+            +	        	'</div>'
+            +	        '</div>'
+            +       '</div>';
+            cardNum ++;
+        }
+      }
       // 添加新条目
       $('.infinite-scroll .content-card').append(html);
 

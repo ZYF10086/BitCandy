@@ -2,9 +2,9 @@
     margin-top: 0;
 }
 
-/* .content-block.bit-index {
+.content-block.bit-index {
     margin-top: -2.5rem;
-} */
+}
 
 .bar.bar-nav.bit {
     background-color: #C20C0C;
@@ -26,7 +26,7 @@ a.bit,
 
 .bit-hot {
     background-color: #c20c0c;
-    font-size: .4rem;
+    font-size: .3rem;
     color: #ffffff;
     position: absolute;
     padding: 0 .1rem 0 .1rem;
