@@ -2,6 +2,10 @@
     margin-top: 0;
 }
 
+/* .content-block.bit-index {
+    margin-top: -2.5rem;
+} */
+
 .bar.bar-nav.bit {
     background-color: #C20C0C;
 }
@@ -21,9 +25,11 @@ a.bit,
 }
 
 .bit-hot {
-    position: relative;
-    top: -1.88rem;
-    left: -0.75rem;
+    background-color: #c20c0c;
+    font-size: .4rem;
+    color: #ffffff;
+    position: absolute;
+    padding: 0 .1rem 0 .1rem;
 }
 
 .bit-hot.seat {
@@ -34,6 +40,10 @@ a.bit,
     font-size: .65rem;
 }
 
+.item-subtitle.bit {
+    white-space: normal;
+}
+
 .item-title.bit {
     line-height: 2;
 }
@@ -42,6 +52,9 @@ a.bit,
     font-size: 1.5rem;
 }
 
+.card-content-inner.bit-avtive {
+    font-size: .65rem;
+}
 
 .card-content-inner.bit-account {
     font-size: 1.5rem;

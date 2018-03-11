@@ -16,17 +16,8 @@
   <link rel="stylesheet" href="css/sm.min.css">
   <link rel="stylesheet" href="css/sm-extend.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <style type="text/css">
-      .infinite-scroll-preloader {
-        margin-top:0px;
-      }
-      p{
-        text-align: center;
-      }
-  </style>
 
 </head>
-
 <body>
   <div class="page" id="index">
     <header class="bar bar-nav bit">
@@ -34,23 +25,23 @@
     </header>
     <nav class="bar bar-tab">
       <a class="tab-item active" href="/BitCandy">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">活动</span>
-      </a>
-      <a class="tab-item" href="sugar">
         <span class="icon icon-gift"></span>
         <span class="tab-label">糖果</span>
+      </a>
+      <a class="tab-item" href="#">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">资讯</span>
       </a>
       <a class="tab-item" href="mine">
         <span class="icon icon-me"></span>
         <span class="tab-label">我的</span>
       </a>
-      </nav>
-      <div class="content infinite-scroll ">
-        <img src="https://dummyimage.com/375x100" alt="" style="width: 100%">
-        <div class="content-block bit pull-to-refresh-content" data-distance="50">
-          <!-- 默认的下拉刷新层 -->
-          <div class="pull-to-refresh-layer">
+    </nav>
+    <div class="content infinite-scroll ">
+      <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: absolute;">
+      <div class="content-block bit pull-to-refresh-content" data-distance="50">
+        <!-- 默认的下拉刷新层 -->
+        <div class="pull-to-refresh-layer">
             <div class="preloader"></div>
             <div class="pull-to-refresh-arrow"></div>
           </div>
@@ -98,8 +89,7 @@
     		resultArray[count][0] = '<c:out value="${activity.getType()}" />';
     		resultArray[count][1] = "<c:out value='${activity.getTitle()}' />";
     		resultArray[count][2] = <c:out value="${activity.getInterestRate()}" />;
-    		resultArray[count][3] = '<c:out value="${activity.getLeftTime()}" />';
-    		resultArray[count][4] = <c:out value="${activity.getMember()}" />;
+    		resultArray[count][3] = <c:out value="${activity.getMember()}" />;
     		count++;
     	</c:forEach>
     }
@@ -115,20 +105,25 @@
 				html += 
 					'<div class="card">'
 			+	        '<div class="card-content">'
+      
 			+	        	'<div class="list-block media-list">'
+      
 			+	        		'<ul>'
 			+	        			'<li>'
+          +                   '<span class="bit-hot">HOT</span>'
+      
 			+	        				'<a href="third.html" class="item-link item-content">'
+
 			+	        					'<div class="item-media">'
-			+	        						'<img class="bit-hot" src="https://dummyimage.com/30x15">'
 			+	        						'<img src="https://dummyimage.com/50x50" width="50">'
 			+	        					'</div>'
 			+	        					'<div class="item-inner">'
 			+	        						'<div class="item-title-row">'
 			+	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
-			+	        							'<div class="item-subtitle bit">'+resultArray[i][4]+'人已登记</div></div><div class="item-subtitle bit">'+resultArray[i][3]+'</div>'
-			+	        							'<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
-			+	        						'</div>'
+			+	        							'<div class="item-subtitle bit">'+resultArray[i][3]+'人已登记</div>'
+      +                     '</div>' 
+      +                     '<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
+			+	        					'</div>'
 			+	        				'</a>'
 			+	        			'</li>'
 			+	        		'</ul>'
