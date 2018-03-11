@@ -22,22 +22,9 @@
 <body>
   <div class="page" id="sugar">
     <header class="bar bar-nav bit">
+      <a class="icon icon-left pull-left back bit"></a>
       <h1 class="title bit">我的糖果</h1>
     </header>
-    <nav class="bar bar-tab">
-      <a class="tab-item" href="/BitCandy">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">活动</span>
-      </a>
-      <a class="tab-item active" href="sugar">
-        <span class="icon icon-gift"></span>
-        <span class="tab-label">糖果</span>
-      </a>
-      <a class="tab-item" href="mine">
-        <span class="icon icon-me"></span>
-        <span class="tab-label">我的</span>
-      </a>
-    </nav>
 
     <div class="content">
       <div class="card">

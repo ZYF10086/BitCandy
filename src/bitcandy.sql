@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql5.7
-Source Server Version : 50721
+Source Server         : 本地数据库连接
+Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : bitcandy
 
 Target Server Type    : MYSQL
-Target Server Version : 50721
+Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-08 20:56:09
+Date: 2018-03-11 18:17:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for activity
+-- Table structure for `activity`
 -- ----------------------------
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -40,7 +40,7 @@ INSERT INTO `activity` VALUES ('3', '下一代版权交易平台', '000', '2018-
 INSERT INTO `activity` VALUES ('4', '下一代版权交易平台', '000', '2018-09-10 00:00:00', 'BTC', '0', '20', '20');
 
 -- ----------------------------
--- Table structure for app_resource
+-- Table structure for `app_resource`
 -- ----------------------------
 DROP TABLE IF EXISTS `app_resource`;
 CREATE TABLE `app_resource` (
@@ -54,7 +54,7 @@ CREATE TABLE `app_resource` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for join_in
+-- Table structure for `join_in`
 -- ----------------------------
 DROP TABLE IF EXISTS `join_in`;
 CREATE TABLE `join_in` (
@@ -80,7 +80,7 @@ INSERT INTO `join_in` VALUES ('7', '123@qq.com', '7', '2018-02-07 00:00:00', '15
 INSERT INTO `join_in` VALUES ('8', '123@qq.com', '8', '2018-02-08 00:00:00', '2', 'BIG');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
