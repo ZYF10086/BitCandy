@@ -67,9 +67,9 @@
     // 加载flag
     var loading = false;
     
-	//数据的条数
+    //数据的条数
     var c = <c:out value="${result.size()}" />;
-	
+
     // 最多可加载的条目
     var maxItems = c;
 
@@ -79,25 +79,25 @@
     //数据库结果
     var resultArray = new Array();
     for(var k=0;k<c;k++){
-    	resultArray[k] = new Array();
+      resultArray[k] = new Array();
     }
     
-	var cardNum = 0;
-	
+    var cardNum = 0;
+
     function getData(){
-    	var count = 0;
-    	<c:forEach items="${result}" var="activity" >
-    		resultArray[count][0] = '<c:out value="${activity.getType()}" />';
-    		resultArray[count][1] = "<c:out value='${activity.getTitle()}' />";
-    		resultArray[count][2] = <c:out value="${activity.getInterestRate()}" />;
-    		resultArray[count][3] = <c:out value="${activity.getMember()}" />;
-    		count++;
-    	</c:forEach>
+      var count = 0;
+      <c:forEach items="${result}" var="activity" >
+        resultArray[count][0] = '<c:out value="${activity.getType()}" />';
+        resultArray[count][1] = "<c:out value='${activity.getTitle()}' />";
+        resultArray[count][2] = <c:out value="${activity.getInterestRate()}" />;
+        resultArray[count][3] = <c:out value="${activity.getMember()}" />;
+        count++;
+      </c:forEach>
     }
     
     //获取数据库数据
     getData();
-	
+
     function addItems(number, lastIndex) {
       // 生成新条目的HTML
       var html = '';
@@ -138,7 +138,7 @@
     addItems(itemsPerLoad, 0);
 
     // 上次加载的序号
-	
+
     var lastIndex = cardNum;
 
     // 注册'infinite'事件处理函数
@@ -150,7 +150,7 @@
       // 设置flag
       loading = true;
 
-      // 模拟1s的加载过程
+      // 模拟0.5s的加载过程
       setTimeout(function () {
         // 重置加载flag
         loading = false;
@@ -165,7 +165,7 @@
           return;
         }
 
-     
+      
         // 更新最后加载的序号
         lastIndex = $('.content-card li').length;
         //容器发生改变,如果是js滚动，需要刷新滚动
@@ -179,9 +179,10 @@
     // 添加'refresh'监听器
     $(document).on('refresh', '.pull-to-refresh-content', function (e) {
       // 模拟2s的加载过程
-      setTimeout(function () {
+      window.location.reload();
+      window.onload = function() {
         $.pullToRefreshDone('.pull-to-refresh-content');
-      }, 1000);
+      }
       $.destroyPullToRefresh(ptrContent) //销毁/禁用 下拉刷新
     });
   </script>

@@ -18,8 +18,12 @@
       .loading {
         width: 150px;
         height: 15px;
-        margin: 0 auto;
-        margin-top: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
         text-align: center;
       }
 
@@ -79,31 +83,22 @@
           <span></span>
           <span></span>
           <span></span>
-          <span></span>
         </div>
-        <!-- <iframe src="https://baidu.com" width="100%" frameborder="0" id="third-iframe" scrolling="no" onload="changeFrameHeight()"></iframe> -->
+        <iframe src="https://baidu.com" width="100%" frameborder="0" id="third-iframe" scrolling="no" onload="changeFrameHeight()"></iframe>
       </div>
     </div>
     <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
     <script>
-      var iframe = document.createElement("iframe");
-      iframe.src = "https://baidu.com";
-      iframe.width = "100%";
-      ifmame.height = document.documentElement.clientHeight;
-      iframe.frameBorder = "0";
-      iframe.scrolling = "no";
-      window.onresize = function () {
-        ifmame.height = document.documentElement.clientHeight;
+      function changeFrameHeight() {
+        var ifm = document.getElementById("third-iframe");
+        ifm.height = document.documentElement.clientHeight;
+        $('.loading').remove();
       }
-     
-      document.body.appendChild(iframe);
-
-
-
-
-
+      window.onresize = function () {
+        changeFrameHeight();
+      } 
     </script>
   </body>
 

@@ -60,8 +60,7 @@
           <div class="content-block">
             <div class="row">
               <div class="col-50">
-                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录"
-                  disabled="disabled">
+                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录" disabled="disabled">
               </div>
               <div class="col-50">
                 <a href="showRegister" class="button button-big button-fill button-success login">注册</a>
@@ -90,33 +89,26 @@
 
       function formSubmit() {
         var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
-        $.ajax(
-          {
-            data: text,
-            type: "post",
-            url: "/BitCandy/checkforlogin",
-            success: function (response) {
-              if (response == "1") {
-                $.toast("没有这个用户");
-              } else if (response == "2") {
-                $.toast("您的账号还没有激活~");
-              } else if (response == "3") {
-                $.toast("密码错误~");
-              } else if (response == "0") {
-                $.ajax({
-                  data: text,
-                  type: "post",
-                  url: "/BitCandy/checkforlogin"
-                })
-              }
+        $.ajax({
+          data: text,
+          type: "post",
+          url: "/BitCandy/checkforlogin",
+          success: function (response) {
+            if (response == "1") {
+              $.toast("没有这个用户");
+            } else if (response == "2") {
+              $.toast("您的账号还没有激活~");
+            } else if (response == "3") {
+              $.toast("密码错误~");
+            } else if (response == "-1") {
+              window.location.href = "mine";
             }
           }
-        )
+        })
       }
 
       if (navigator.onLine) { }
       else { $.toast("无可用网络，请检查网络设置~"); }
-
 
       // 表单验证
       $('input').bind('input propertychange', function () {
