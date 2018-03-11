@@ -41,29 +41,28 @@
         <span class="icon icon-gift"></span>
         <span class="tab-label">糖果</span>
       </a>
-      <a class="tab-item" href="mine"> 
+      <a class="tab-item" href="mine">
         <span class="icon icon-me"></span>
         <span class="tab-label">我的</span>
       </a>
-    </nav>
-
-    <div class="content">
-      <img class="bit-img" src="https://dummyimage.com/375x100">
-      <div class="content-block bit infinite-scroll pull-to-refresh-content" data-distance="50">
-        <!-- 默认的下拉刷新层 -->
-        <div class="pull-to-refresh-layer">
-          <div class="preloader"></div>
-          <div class="pull-to-refresh-arrow"></div>
-        </div>
-        <div class="content-card"></div>
-        <!-- 加载提示符 -->
+      </nav>
+      <div class="content infinite-scroll ">
+        <img src="https://dummyimage.com/375x100" alt="" style="width: 100%">
+        <div class="content-block bit pull-to-refresh-content" data-distance="50">
+          <!-- 默认的下拉刷新层 -->
+          <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+          </div>
+          <div class="content-card"></div>
+          <!-- 加载提示符 -->
           <div class="infinite-scroll-preloader">
             <div class="preloader"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
+      </div>
+      <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
   <!-- 判断网络是否可用，不可用时显示toast提示 -->
@@ -76,14 +75,14 @@
     // 加载flag
     var loading = false;
     
+	//数据的条数
+    var c = <c:out value="${result.size()}" />;
+	
     // 最多可加载的条目
-    var maxItems = 10;
+    var maxItems = c;
 
     // 每次加载添加多少条目
     var itemsPerLoad = 5;
-    
-    //数据的条数
-    var c = <c:out value="${result.size()}" />;
     
     //数据库结果
     var resultArray = new Array();
@@ -91,6 +90,8 @@
     	resultArray[k] = new Array();
     }
     
+	var cardNum = 0;
+	
     function getData(){
     	var count = 0;
     	<c:forEach items="${result}" var="activity" >
@@ -105,36 +106,38 @@
     
     //获取数据库数据
     getData();
-    
+	
     function addItems(number, lastIndex) {
       // 生成新条目的HTML
      var html = '';
 	 for (var i = lastIndex; i < lastIndex + number; i++) {
-	        html += 
-	            '<div class="card">'
-	    +	        '<div class="card-content">'
-	    +	        	'<div class="list-block media-list">'
-	    +	        		'<ul>'
-	    +	        			'<li>'
-	    +	        				'<a href="third.html" class="item-link item-content">'
-	    +	        					'<div class="item-media">'
-	    +	        						'<img class="bit-hot" src="https://dummyimage.com/30x15">'
-	    +	        						'<img src="https://dummyimage.com/50x50" width="50">'
-	    +	        					'</div>'
-	    +	        					'<div class="item-inner">'
-	    +	        						'<div class="item-title-row">'
-	    +	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
-	    +	        							'<div class="item-subtitle bit">'+resultArray[i][4]+'人已登记</div></div><div class="item-subtitle bit">'+resultArray[i][3]+'</div>'
-	    +	        							'<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
-	    +	        						'</div>'
-	    +	        				'</a>'
-	    +	        			'</li>'
-	    +	        		'</ul>'
-	    +	        	'</div>'
-	    +	        '</div>'
-	    +       '</div>'; 
-     	}
-
+		 if(i<c){
+				html += 
+					'<div class="card">'
+			+	        '<div class="card-content">'
+			+	        	'<div class="list-block media-list">'
+			+	        		'<ul>'
+			+	        			'<li>'
+			+	        				'<a href="third.html" class="item-link item-content">'
+			+	        					'<div class="item-media">'
+			+	        						'<img class="bit-hot" src="https://dummyimage.com/30x15">'
+			+	        						'<img src="https://dummyimage.com/50x50" width="50">'
+			+	        					'</div>'
+			+	        					'<div class="item-inner">'
+			+	        						'<div class="item-title-row">'
+			+	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
+			+	        							'<div class="item-subtitle bit">'+resultArray[i][4]+'人已登记</div></div><div class="item-subtitle bit">'+resultArray[i][3]+'</div>'
+			+	        							'<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
+			+	        						'</div>'
+			+	        				'</a>'
+			+	        			'</li>'
+			+	        		'</ul>'
+			+	        	'</div>'
+			+	        '</div>'
+			+       '</div>';
+				cardNum ++;
+		}
+	 }
       // 添加新条目
       $('.infinite-scroll .content-card').append(html);
 
@@ -143,8 +146,8 @@
     addItems(itemsPerLoad, 0);
 
     // 上次加载的序号
-
-    var lastIndex = 5;
+	
+    var lastIndex = cardNum;
 
     // 注册'infinite'事件处理函数
     $(document).on('infinite', '.infinite-scroll', function () {
@@ -170,8 +173,7 @@
           return;
         }
 
-        // 添加新条目
-        addItems(itemsPerLoad, lastIndex);
+     
         // 更新最后加载的序号
         lastIndex = $('.content-card li').length;
         //容器发生改变,如果是js滚动，需要刷新滚动
