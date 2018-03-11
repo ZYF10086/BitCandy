@@ -60,7 +60,8 @@
           <div class="content-block">
             <div class="row">
               <div class="col-50">
-                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录" disabled="disabled">
+                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录"
+                  disabled="disabled">
               </div>
               <div class="col-50">
                 <a href="showRegister" class="button button-big button-fill button-success login">注册</a>
@@ -82,61 +83,62 @@
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
     <script>
       $(function () {
-          $(document).on('click', '.alert-text-title', function () {
-            $.alert('请检查后重新登录', '密码或用户名错误!');
-          });
-        })
+        $(document).on('click', '.alert-text-title', function () {
+          $.alert('请检查后重新登录', '密码或用户名错误!');
+        });
+      })
 
-        function formSubmit() {
-    	  var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
-          $.ajax(
-            {
-              data: text,
-              type: "post",
-              url: "/BitCandy/checkforlogin",
-              success: function (response) {
-                if(response == "1"){
-                	$.toast("没有这个用户");
-                }else if(response == "2"){
-                	$.toast("您的账号还没有激活~");
-                }else if(response == "3"){
-                	$.toast("密码错误~");
-                }else if(response == "0"){
-					$.ajax({
-						data: text,
-						type: "post",
-						url: "/BitCandy/checkforlogin"
-					})
-                }
+      function formSubmit() {
+        var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
+        $.ajax(
+          {
+            data: text,
+            type: "post",
+            url: "/BitCandy/checkforlogin",
+            success: function (response) {
+              if (response == "1") {
+                $.toast("没有这个用户");
+              } else if (response == "2") {
+                $.toast("您的账号还没有激活~");
+              } else if (response == "3") {
+                $.toast("密码错误~");
+              } else if (response == "0") {
+                $.ajax({
+                  data: text,
+                  type: "post",
+                  url: "/BitCandy/checkforlogin"
+                })
               }
             }
-          )
-        }
-    
+          }
+        )
+      }
+
       if (navigator.onLine) { }
       else { $.toast("无可用网络，请检查网络设置~"); }
-    // 表单验证
-    $('input').bind('input propertychange', function() {
-  　　var email = $("input[type='email']").val();
-      // var pwd= $("input[type='password']").val();
-      var pwd = $("input[type='password']").val();
-      var submit = $("input[type='submit']");
-  　　var Reg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-   
-  　　if(Reg.test(email) && pwd != ""){
-  　　　　submit.removeClass("disabled");
+
+
+      // 表单验证
+      $('input').bind('input propertychange', function () {
+        var email = $("input[type='email']").val();
+        var pwd = $("input[type='password']").val();
+        var submit = $("input[type='button']");
+        var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+
+        if (Reg.test(email) && pwd != "") {
+          submit.removeClass("disabled");
           submit.removeAttr("disabled");
 
-  　　}
+        }
 
-    if(Reg.test(email) == false || pwd == ""){
-  　　　　submit.addClass("disabled");
-          submit.attr("disabled","disabled");
+        if (Reg.test(email) == false || pwd == "") {
+          submit.addClass("disabled");
+          submit.attr("disabled", "disabled");
 
-  　　}
-    })
+        }
+      })
     </script>
-    
+
   </body>
 
   </html>
