@@ -28,7 +28,7 @@
 
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
-        <form action="login" method="post">
+        <form action="login" method="post" novalidate>
           <div class="list-block">
             <ul>
               <li>
@@ -60,7 +60,7 @@
           <div class="content-block">
             <div class="row">
               <div class="col-50">
-                <input type="submit" class="button button-big button-fill button-danger login" value="登录">
+                <input type="submit" class="button button-big button-fill button-danger login disabled" value="登录" disabled="disabled">
               </div>
               <div class="col-50">
                 <a href="showRegister" class="button button-big button-fill button-success login">注册</a>
@@ -90,14 +90,32 @@
       }else if (<%= request.getParameter("status") %> == 3) {
         $.toast("密码错误");
       }
-    </script>
-    <!-- 登录验证 -->
-    <script>
+    // 登录验证
       $(function () {
         $(document).on('click', '.alert-text-title', function () {
           $.alert('请检查后重新登录', '密码或用户名错误!');
         });
       })
+    // 表单验证
+    $('input').bind('input propertychange', function() {
+  　　var email = $("input[type='email']").val();
+      // var pwd= $("input[type='password']").val();
+      var pwd = $("input[type='password']").val();
+      var submit = $("input[type='submit']");
+  　　var Reg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+   
+  　　if(Reg.test(email) && pwd != ""){
+  　　　　submit.removeClass("disabled");
+          submit.removeAttr("disabled");
+
+  　　}
+
+    if(Reg.test(email) == false || pwd == ""){
+  　　　　submit.addClass("disabled");
+          submit.attr("disabled","disabled");
+
+  　　}
+    })
     </script>
   </body>
 
