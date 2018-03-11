@@ -28,7 +28,7 @@
 
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
-        <form action="login" method="post">
+        <form method="post">
           <div class="list-block">
             <ul>
               <li>
@@ -60,7 +60,7 @@
           <div class="content-block">
             <div class="row">
               <div class="col-50">
-                <input type="submit" class="button button-big button-fill button-danger login" value="登录">
+                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login" value="登录">
               </div>
               <div class="col-50">
                 <a href="showRegister" class="button button-big button-fill button-success login">注册</a>
@@ -80,25 +80,42 @@
     <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
-    <script>
-      if (navigator.onLine) { }
-      else { $.toast("无可用网络，请检查网络设置~"); }
-      if (<%= request.getParameter("status") %> == 1) {
-        $.toast("没有这个用户");
-      }else if (<%= request.getParameter("status") %> == 2) {
-        $.toast("您的账号还没有激活");
-      }else if (<%= request.getParameter("status") %> == 3) {
-        $.toast("密码错误");
-      }
-    </script>
-    <!-- 登录验证 -->
+
     <script>
       $(function () {
-        $(document).on('click', '.alert-text-title', function () {
-          $.alert('请检查后重新登录', '密码或用户名错误!');
-        });
-      })
+          $(document).on('click', '.alert-text-title', function () {
+            $.alert('请检查后重新登录', '密码或用户名错误!');
+          });
+        })
+
+        function formSubmit() {
+    	  var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
+          $.ajax(
+            {
+              data: text,
+              type: "post",
+              url: "/BitCandy/checkforlogin",
+              success: function (response) {
+                if(response == "1"){
+                	$.toast("没有这个用户");
+                }else if(response == "2"){
+                	$.toast("您的账号还没有激活~");
+                }else if(response == "3"){
+                	$.toast("密码错误~");
+                }else if(response == "0"){
+					$.ajax({
+						data: text,
+						type: "post",
+						url: "/BitCandy/checkforlogin"
+					})
+                }
+              }
+            }
+          )
+        }
+            
     </script>
+    
   </body>
 
   </html>
