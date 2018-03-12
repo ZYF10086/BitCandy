@@ -26,10 +26,11 @@ a.bit,
 
 .bit-hot {
     background-color: #c20c0c;
-    font-size: .3rem;
+    font-size: .1rem;
     color: #ffffff;
     position: absolute;
     padding: 0 .1rem 0 .1rem;
+    border-radius: .1rem;
 }
 
 .bit-hot.seat {

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/sm.min.css">
     <link rel="stylesheet" href="css/sm-extend.min.css">
     <link rel="stylesheet" href="css/style.css">
-
   </head>
 
   <body>
@@ -81,12 +80,7 @@
     <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
     <script>
-      $(function () {
-        $(document).on('click', '.alert-text-title', function () {
-          $.alert('请检查后重新登录', '密码或用户名错误!');
-        });
-      })
-
+      if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
       function formSubmit() {
         var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
         $.ajax({
@@ -107,9 +101,6 @@
         })
       }
 
-      if (navigator.onLine) { }
-      else { $.toast("无可用网络，请检查网络设置~"); }
-
       // 表单验证
       $('input').bind('input propertychange', function () {
         var email = $("input[type='email']").val();
@@ -126,11 +117,8 @@
         if (Reg.test(email) == false || pwd == "") {
           submit.addClass("disabled");
           submit.attr("disabled", "disabled");
-
         }
       })
     </script>
-
   </body>
-
   </html>
