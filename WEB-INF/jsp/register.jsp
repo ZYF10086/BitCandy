@@ -27,7 +27,7 @@
 
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
-        <form action="register" method="post" novalidate>
+        <form method="post" novalidate>
           <div class="list-block">
             <ul>
               <li>
@@ -37,7 +37,7 @@
                   </div>
                   <div class="item-inner">
                     <div class="item-input">
-                      <input type="email" name="email" placeholder="请输入电子邮箱">
+                      <input type="email" name="name" placeholder="请输入电子邮箱">
                     </div>
                   </div>
                 </div>
@@ -108,6 +108,22 @@
 
         }
       })
+      
+      function formSubmit() {
+      var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
+      $.ajax({
+        data: text,
+        type: "post",
+        url: "/BitCandy/checkRegister",
+        success: function (response) {
+          if (response == "1") {
+            $.toast("已经存在这个用户");
+          } else if (response == "0") {
+            window.location.href = "showLogin";
+          }
+        }
+      })
+    }
     </script>
   </body>
 
