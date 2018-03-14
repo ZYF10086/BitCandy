@@ -105,7 +105,7 @@
             +	        		'<ul>'
             +	        			'<li>'
             +                   isHot
-            +	        				'<a href="third.html" class="item-link item-content">'
+            +	        				'<a href="#" class="item-link item-content">'
             +	        					'<div class="item-media">'
             +	        						'<img src="https://dummyimage.com/50x50" width="50">'
             +	        					'</div>'
