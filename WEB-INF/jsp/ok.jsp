@@ -9,6 +9,6 @@
 <body>
 
     <font color="red">congratulations</font>，${message}
-    <br />
+    <br/>
 
 </body>
