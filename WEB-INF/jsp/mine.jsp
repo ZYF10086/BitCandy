@@ -27,7 +27,7 @@
           </a>
           <a class="tab-item" href="information">
             <span class="icon icon-home"></span>
-            <span class="tab-label">资讯</span>
+            <span class="tab-label">比特学堂</span>
           </a>
           <a class="tab-item active" href="mine">
             <span class="icon icon-me"></span>
@@ -75,7 +75,7 @@
                 </a>
               </li>
 
-              <li>
+              <!-- <li>
                 <a href="telephone" class="item-link item-content">
                   <div class="item-media">
                     <span class="icon icon-phone"></span>
@@ -97,7 +97,7 @@
                     </div>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
               <li>
                 <a href="third" class="item-link item-content">
@@ -133,8 +133,7 @@
       <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
       <!-- 判断网络是否可用，不可用时显示toast提示 -->
       <script>
-        if (navigator.onLine) { }
-        else { $.toast("无可用网络，请检查网络设置~"); }     
+        if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
       </script>
     </body>
 

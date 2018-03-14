@@ -44,6 +44,7 @@
   <script type="text/javascript" src="../js/sm.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="../js/sm-extend.min.js" charset="utf-8"></script>
   <script>
+    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
     function changeFrameHeight() {
       var ifm = document.getElementById("third");
       ifm.height = document.documentElement.clientHeight;
@@ -53,12 +54,6 @@
       changeFrameHeight();
 
     } 
-  </script>
-  <!-- 判断网络是否可用，不可用时显示toast提示 -->
-  <script>
-    if (navigator.onLine) 
-       {} 
-    else {$.toast("无可用网络，请检查网络设置~");}     
   </script>
 </body>
 

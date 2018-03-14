@@ -21,7 +21,7 @@
 <body>
   <div class="page" id="index">
     <header class="bar bar-nav bit">
-      <h1 class="title bit">资讯列表</h1>
+      <h1 class="title bit">比特学堂</h1>
     </header>
     <nav class="bar bar-tab">
       <a class="tab-item" href="/BitCandy">
@@ -30,7 +30,7 @@
       </a>
       <a class="tab-item active" href="information">
         <span class="icon icon-home"></span>
-        <span class="tab-label">资讯</span>
+        <span class="tab-label">比特学堂</span>
       </a>
       <a class="tab-item" href="mine">
         <span class="icon icon-me"></span>
@@ -94,29 +94,7 @@
       var isHot;
       for (var i = lastIndex; i < lastIndex + number; i++) {
         if(i<c){
-            html += 
-                '<div class="card">'
-            +	        '<div class="card-content">'
-            +	        	'<div class="list-block media-list">'
-            +	        		'<ul>'
-            +	        			'<li>'
-            +	        				'<a href="third/'+resultArray[i][3]+'" class="item-link item-content">'
-            +	        					'<div class="item-media">'
-            +	        						'<img src="https://dummyimage.com/50x50" width="50">'
-            +	        					'</div>'
-            +	        					'<div class="item-inner">'
-            +	        						'<div class="item-title-row">'
-            +	        							'<div class="item-title bit">'+resultArray[i][4]+'</div>'
-            +	        							'<div class="item-subtitle bit">'+resultArray[i][0]+'</div>'
-            +                     '</div>' 
-            +                     '<div class="item-subtitle bit">“'+resultArray[i][2]+'”</div>'
-            +	        					'</div>'
-            +	        				'</a>'
-            +	        			'</li>'
-            +	        		'</ul>'
-            +	        	'</div>'
-            +	        '</div>'
-            +       '</div>';
+            html += '<div class="card"><div class="card-header">' + resultArray[i][4] + '</div><div class="card-content"><div class="card-content-inner">“'+ resultArray[i][2].substr(0,60) +'…”</div></div><div class="card-footer"><span>'+resultArray[i][0]+'</span><a href="third/'+resultArray[i][3]+'" class="link">更多</a></div></div>'
             cardNum ++;
         }
       }

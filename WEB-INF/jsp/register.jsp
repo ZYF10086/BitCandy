@@ -85,10 +85,7 @@
     <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
     <script>
-      if (navigator.onLine) { }
-      else { $.toast("无可用网络，请检查网络设置~"); }     
-    </script>
-    <script>
+      if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
       $('input').bind('input propertychange', function () {
         var email = $("input[type='email']").val();
         var pwd = $("input[name='password']").val();
@@ -96,16 +93,12 @@
         var submit = $("input[type='button']");
         var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
         // var reg=/^[1-9]\d*$|^0$/;
-        if (Reg.test(email) && pwd == repwd) {
+        if (Reg.test(email) && pwd != "" && repwd != "") {
           submit.removeClass("disabled");
           submit.removeAttr("disabled");
-
-        }
-
-        if (Reg.test(email) == false || pwd == "" || repwd == "") {
+        }else if (Reg.test(email) == false || pwd == "" || repwd == "") {
           submit.addClass("disabled");
           submit.attr("disabled", "disabled");
-
         }
       })
       
@@ -117,9 +110,9 @@
         url: "/BitCandy/checkRegister",
         success: function (response) {
           if (response == "1") {
-            $.toast("已经存在这个用户");
+            $.toast("该邮箱已被占用");
           } else if (response == "0") {
-        	$.toast("注册成功，请登录邮箱激活");
+        	  $.toast("注册成功，请登录邮箱激活");
             window.location.href = "showLogin";
           }
         }

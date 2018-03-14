@@ -30,8 +30,7 @@
     <div class="card">
         <div class="card-header"><c:out value="${records[0].getType()}" /></div>
         <div class="card-content">
-          <div class="card-content-inner text-center bit-account"><c:out value='${String.format("%.2f", count)}' /></div>
-          <div class="card-content-inner text-center bit-change">≈ ¥ 不用显示</div>
+          <div class="card-content-inner text-center bit-account">= <c:out value='${String.format("%.2f", count)}' /></div>
         </div>
       </div>
       <div class="content-block-title">最近交易记录</div>
@@ -60,6 +59,8 @@
   <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
   <script>
+    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
+
     function changeFrameHeight() {
       var ifm = document.getElementById("third");
       ifm.height = document.documentElement.clientHeight;
@@ -69,12 +70,6 @@
       changeFrameHeight();
 
     } 
-  </script>
-  <!-- 判断网络是否可用，不可用时显示toast提示 -->
-  <script>
-    if (navigator.onLine) 
-       {} 
-    else {$.toast("无可用网络，请检查网络设置~");}     
   </script>
 </body>
 

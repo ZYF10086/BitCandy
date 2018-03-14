@@ -28,11 +28,11 @@
 
     <div class="content">
       <div class="card">
-        <div class="card-header">总资产(¥)</div>
+        <div class="card-header">总糖果数</div>
         <div class="card-content">
      	    <c:choose>
                	<c:when test='<%= session.getAttribute("name") != null %>' >
-          			<div class="card-content-inner text-center bit">≈ 不用显示 </div>
+          			<div class="card-content-inner text-center bit">= float.00 </div>
 				</c:when>
 				<c:otherwise>
 					<div class="card-content-inner text-center bit"><a href="showLogin" style="color: #959595;font-size: 1rem;">登录查看</a></div>
@@ -53,7 +53,6 @@
                   <div class="item-title type"><c:out value="${item.key}" /></div>
                   <div class="item-title price"><c:out value='${String.format("%.2f", item.value[0])}' /></div>
                 </div>
-                <div class="item-title change pull-right">≈ ¥ 不用显示 </div>
               </div>
             </a>
           </li>
@@ -68,9 +67,7 @@
   <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
   <!-- 判断网络是否可用，不可用时显示toast提示 -->
   <script>
-    if (navigator.onLine) 
-       {} 
-    else {$.toast("无可用网络，请检查网络设置~");}     
+    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
   </script>
 </body>
 

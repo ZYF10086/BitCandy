@@ -65,9 +65,7 @@
   <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
   <!-- 判断网络是否可用，不可用时显示toast提示 -->
   <script>
-    if (navigator.onLine) 
-       {} 
-    else {$.toast("无可用网络，请检查网络设置~");}     
+    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
   </script>
 </body>
 

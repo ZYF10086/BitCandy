@@ -30,7 +30,7 @@
       </a>
       <a class="tab-item" href="information">
         <span class="icon icon-home"></span>
-        <span class="tab-label">资讯</span>
+        <span class="tab-label">比特学堂</span>
       </a>
       <a class="tab-item" href="mine">
         <span class="icon icon-me"></span>
@@ -38,7 +38,7 @@
       </a>
     </nav>
     <div class="content infinite-scroll ">
-      <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: relative; z-index: 999;">
+      <div style="max-height: 100px; overflow: hidden;"><img src="http://ching-shan.com/image/data/edmund/1166.jpg" style="width: 100%; position: relative; z-index: 999; "></div>
       <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
         <!-- 默认的下拉刷新层 -->
         <div class="pull-to-refresh-layer">
