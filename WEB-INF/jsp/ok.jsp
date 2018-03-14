@@ -7,8 +7,6 @@
 <title>sorry</title>
 </head>
 <body>
-
-    <font color="red">congratulations！</font>，${message}
+    <font color="red">congratulations</font>，${message}
     <br/>
-
 </body>
