@@ -11,9 +11,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="css/sm.min.css">
-    <link rel="stylesheet" href="css/sm-extend.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/sm.min.css">
+    <link rel="stylesheet" href="../css/sm-extend.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
       .loading {
         width: 150px;
@@ -75,7 +75,7 @@
     <div class="page" id="third">
       <header class="bar bar-nav bit">
         <a class="icon icon-left pull-left back bit"></a>
-        <h1 class="title bit">XX项目</h1>
+        <h1 class="title bit">比特学堂</h1>
       </header>
       <div class="content">
         <div class="loading">
@@ -84,12 +84,12 @@
           <span></span>
           <span></span>
         </div>
-        <iframe src="https://baidu.com" width="100%" frameborder="0" id="third-iframe" scrolling="no" onload="changeFrameHeight()"></iframe>
+        <iframe src="${url}" width="100%" frameborder="0" id="third-iframe" onload="changeFrameHeight()"></iframe>
       </div>
     </div>
-    <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/zepto.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/sm.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/sm-extend.min.js" charset="utf-8"></script>
     <script>
       function changeFrameHeight() {
         var ifm = document.getElementById("third-iframe");

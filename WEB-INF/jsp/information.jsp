@@ -21,14 +21,14 @@
 <body>
   <div class="page" id="index">
     <header class="bar bar-nav bit">
-      <h1 class="title bit">活动列表</h1>
+      <h1 class="title bit">资讯列表</h1>
     </header>
     <nav class="bar bar-tab">
-      <a class="tab-item active" href="/BitCandy">
+      <a class="tab-item" href="/BitCandy">
         <span class="icon icon-gift"></span>
         <span class="tab-label">糖果</span>
       </a>
-      <a class="tab-item" href="information">
+      <a class="tab-item active" href="information">
         <span class="icon icon-home"></span>
         <span class="tab-label">资讯</span>
       </a>
@@ -79,6 +79,7 @@
       <c:forEach items="${result}" var="information" >
         resultArray[count][0] = '<c:out value="${information.getAddtime()}" />';
         resultArray[count][1] = <c:out value='${information.getClick()}' />;
+        resultArray[count][2] = '<c:out value="${information.getContent()}" />';
         resultArray[count][3] = <c:out value="${information.getId()}" />;
         resultArray[count][4] = '<c:out value="${information.getTitle()}" />';
         resultArray[count][5] = '<c:out value="${information.getUrl()}" />';
@@ -99,16 +100,16 @@
             +	        	'<div class="list-block media-list">'
             +	        		'<ul>'
             +	        			'<li>'
-            +	        				'<a href="third.html" class="item-link item-content">'
+            +	        				'<a href="third/'+resultArray[i][3]+'" class="item-link item-content">'
             +	        					'<div class="item-media">'
             +	        						'<img src="https://dummyimage.com/50x50" width="50">'
             +	        					'</div>'
             +	        					'<div class="item-inner">'
             +	        						'<div class="item-title-row">'
-            +	        							'<div class="item-title bit">'+resultArray[i][5]+'</div>'
+            +	        							'<div class="item-title bit">'+resultArray[i][4]+'</div>'
             +	        							'<div class="item-subtitle bit">'+resultArray[i][0]+'</div>'
             +                     '</div>' 
-            +                     '<div class="item-subtitle bit">“'+resultArray[i][4]+'”</div>'
+            +                     '<div class="item-subtitle bit">“'+resultArray[i][2]+'”</div>'
             +	        					'</div>'
             +	        				'</a>'
             +	        			'</li>'
