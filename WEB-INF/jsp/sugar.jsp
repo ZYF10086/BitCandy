@@ -32,7 +32,7 @@
         <div class="card-content">
      	    <c:choose>
                	<c:when test='<%= session.getAttribute("name") != null %>' >
-          			<div class="card-content-inner text-center bit">≈ <c:out value='${String.format("%.2f", total)}' /></div>
+          			<div class="card-content-inner text-center bit">≈ 不用显示 </div>
 				</c:when>
 				<c:otherwise>
 					<div class="card-content-inner text-center bit"><a href="showLogin" style="color: #959595;font-size: 1rem;">登录查看</a></div>
@@ -53,7 +53,7 @@
                   <div class="item-title type"><c:out value="${item.key}" /></div>
                   <div class="item-title price"><c:out value='${String.format("%.2f", item.value[0])}' /></div>
                 </div>
-                <div class="item-title change pull-right">≈ ¥ <c:out value='${String.format("%.2f", item.value[1])}' /></div>
+                <div class="item-title change pull-right">≈ ¥ 不用显示 </div>
               </div>
             </a>
           </li>

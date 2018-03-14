@@ -76,12 +76,12 @@
     var cardNum = 0;
     function getData(){
       var count = 0;
-      <c:forEach items="${result}" var="activity" >
-        resultArray[count][0] = '<c:out value="${activity.getType()}" />';
-        resultArray[count][1] = "<c:out value='${activity.getTitle()}' />";
-        resultArray[count][2] = <c:out value="${activity.getInterestRate()}" />;
-        resultArray[count][3] = <c:out value="${activity.getMember()}" />;
-        resultArray[count][4] = <c:out value="${activity.getIsHot()}" />;
+      <c:forEach items="${result}" var="information" >
+        resultArray[count][0] = '<c:out value="${information.getAddtime()}" />';
+        resultArray[count][1] = <c:out value='${information.getClick()}' />;
+        resultArray[count][3] = <c:out value="${information.getId()}" />;
+        resultArray[count][4] = '<c:out value="${information.getTitle()}" />';
+        resultArray[count][5] = '<c:out value="${information.getUrl()}" />';
         count++;
       </c:forEach>
     }
@@ -93,28 +93,22 @@
       var isHot;
       for (var i = lastIndex; i < lastIndex + number; i++) {
         if(i<c){
-        	if(resultArray[i][4] == "1"){
-        		isHot = '<span class="bit-hot">HOT</span>';
-        	}else{
-        		isHot = '';
-        	}
             html += 
                 '<div class="card">'
             +	        '<div class="card-content">'
             +	        	'<div class="list-block media-list">'
             +	        		'<ul>'
             +	        			'<li>'
-            +                   isHot
             +	        				'<a href="third.html" class="item-link item-content">'
             +	        					'<div class="item-media">'
             +	        						'<img src="https://dummyimage.com/50x50" width="50">'
             +	        					'</div>'
             +	        					'<div class="item-inner">'
             +	        						'<div class="item-title-row">'
-            +	        							'<div class="item-title bit">'+resultArray[i][0]+'</div>'
-            +	        							'<div class="item-subtitle bit">'+resultArray[i][3]+'人已登记</div>'
+            +	        							'<div class="item-title bit">'+resultArray[i][5]+'</div>'
+            +	        							'<div class="item-subtitle bit">'+resultArray[i][0]+'</div>'
             +                     '</div>' 
-            +                     '<div class="item-subtitle bit">“'+resultArray[i][1]+'”</div>'
+            +                     '<div class="item-subtitle bit">“'+resultArray[i][4]+'”</div>'
             +	        					'</div>'
             +	        				'</a>'
             +	        			'</li>'

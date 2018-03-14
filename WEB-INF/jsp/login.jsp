@@ -94,7 +94,7 @@
               $.toast("您的账号还没有激活~");
             } else if (response == "3") {
               $.toast("密码错误~");
-            } else if (response == "-1") {
+            } else if (response == "0") {
               window.location.href = "mine";
             }
           }

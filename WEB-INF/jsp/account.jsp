@@ -31,7 +31,7 @@
         <div class="card-header"><c:out value="${records[0].getType()}" /></div>
         <div class="card-content">
           <div class="card-content-inner text-center bit-account"><c:out value='${String.format("%.2f", count)}' /></div>
-          <div class="card-content-inner text-center bit-change">≈ ¥ <c:out value='${String.format("%.2f", money)}' /></div>
+          <div class="card-content-inner text-center bit-change">≈ ¥ 不用显示</div>
         </div>
       </div>
       <div class="content-block-title">最近交易记录</div>
