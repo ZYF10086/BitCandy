@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -47,7 +48,9 @@
       </div>
       <div class="content-block">
         <div class="col-50">
+        <c:if test="${!(empty sessionScope.name)}">
           <a href="logout" class="button button-big button-fill button-danger install">退出登录</a>
+        </c:if>
         </div>
       </div>
     </div>
