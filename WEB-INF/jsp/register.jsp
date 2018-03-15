@@ -113,7 +113,7 @@
             $.toast("该邮箱已被占用");
           } else if (response == "0") {
         	  $.toast("注册成功，请登录邮箱激活");
-            window.location.href = "showLogin";
+            window.setTimeout("location='showLogin'", 1200);
           }
         }
       })
