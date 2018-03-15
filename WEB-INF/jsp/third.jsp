@@ -32,7 +32,7 @@
         width: 15px;
         height: 100%;
         margin-right: 5px;
-        background: #C20C0C;
+        background: #0894ec;
         -webkit-animation: load 1.04s ease infinite;
       }
 
