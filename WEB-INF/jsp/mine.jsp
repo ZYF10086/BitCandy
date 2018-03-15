@@ -100,7 +100,7 @@
               </li> -->
 
               <li>
-                <a href="third" class="item-link item-content">
+                <a href="third/about" class="item-link item-content">
                   <div class="item-media">
                     <span class="icon icon-message"></span>
                   </div>
