@@ -101,23 +101,29 @@
           submit.attr("disabled", "disabled");
         }
       })
-      
+
       function formSubmit() {
-      var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
-      $.ajax({
-        data: text,
-        type: "post",
-        url: "/BitCandy/checkRegister",
-        success: function (response) {
-          if (response == "1") {
-            $.toast("该邮箱已被占用");
-          } else if (response == "0") {
-        	  $.toast("注册成功，请登录邮箱激活");
-            setTimeout("window.location.href='showLogin'", 1200);
-          }
+        var pwd = $("input[name='password']").val();
+        var repwd = $("input[name='repassword']").val();
+        if(pwd != repwd) {
+          $.toast("两次输入密码不一致");
+          return;
         }
-      })
-    }
+        var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
+        $.ajax({
+          data: text,
+          type: "post",
+          url: "/BitCandy/checkRegister",
+          success: function (response) {
+            if (response == "1") {
+              $.toast("该邮箱已被占用");
+            } else if (response == "0") {
+              $.toast("注册成功，请登录邮箱激活");
+              setTimeout("window.location.href='showLogin'", 1200);
+            }
+          }
+        })
+      }
     </script>
   </body>
 
