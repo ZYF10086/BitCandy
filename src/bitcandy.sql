@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地数据库连接
-Source Server Version : 50553
+Source Server         : mysql5.7
+Source Server Version : 50721
 Source Host           : localhost:3306
 Source Database       : bitcandy
 
 Target Server Type    : MYSQL
-Target Server Version : 50553
+Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-11 18:17:01
+Date: 2018-03-15 17:38:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `activity`
+-- Table structure for activity
 -- ----------------------------
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -29,18 +29,20 @@ CREATE TABLE `activity` (
   `interest_rate` int(11) NOT NULL,
   `member_count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of activity
 -- ----------------------------
-INSERT INTO `activity` VALUES ('1', '分布式操作系统，BM大作', '000', '2018-09-22 00:00:00', 'EOS', '0', '20', '30');
-INSERT INTO `activity` VALUES ('2', '比特币交易平台，潜力无限', '000', '2018-09-11 00:00:00', 'BIG', '0', '50', '100');
-INSERT INTO `activity` VALUES ('3', '下一代版权交易平台', '000', '2018-09-10 00:00:00', 'PRS', '0', '20', '20');
-INSERT INTO `activity` VALUES ('4', '下一代版权交易平台', '000', '2018-09-10 00:00:00', 'BTC', '0', '20', '20');
+INSERT INTO `activity` VALUES ('1', '分布式操作系统，BM大作', '000', '2018-09-22 00:00:00', 'EOS', '1', '20', '30');
+INSERT INTO `activity` VALUES ('2', '比特币交易平台，潜力无限', '000', '2018-09-11 00:00:00', 'BIG', '1', '50', '100');
+INSERT INTO `activity` VALUES ('3', '小猪天祥', '000', '2018-09-05 00:00:00', 'PRS', '0', '30', '150');
+INSERT INTO `activity` VALUES ('4', '张艺van的vans', '000', '2018-07-05 00:00:00', 'BTC', '0', '20', '120');
+INSERT INTO `activity` VALUES ('5', 'aaaaaaaa', '000', '2018-07-05 00:00:00', 'BTC', '0', '55', '42');
+INSERT INTO `activity` VALUES ('6', 'BBBBBBBB', '000', '2018-07-05 00:00:00', 'BTC', '0', '42', '85');
 
 -- ----------------------------
--- Table structure for `app_resource`
+-- Table structure for app_resource
 -- ----------------------------
 DROP TABLE IF EXISTS `app_resource`;
 CREATE TABLE `app_resource` (
@@ -54,7 +56,7 @@ CREATE TABLE `app_resource` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `join_in`
+-- Table structure for join_in
 -- ----------------------------
 DROP TABLE IF EXISTS `join_in`;
 CREATE TABLE `join_in` (
@@ -80,7 +82,7 @@ INSERT INTO `join_in` VALUES ('7', '123@qq.com', '7', '2018-02-07 00:00:00', '15
 INSERT INTO `join_in` VALUES ('8', '123@qq.com', '8', '2018-02-08 00:00:00', '2', 'BIG');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -90,10 +92,14 @@ CREATE TABLE `user` (
   `phone_activated` int(11) NOT NULL DEFAULT '0',
   `email_activated` int(11) NOT NULL DEFAULT '0',
   `regist_time` datetime NOT NULL,
+  `active_key` varchar(100) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '123', '0', '1', '2018-02-09 22:52:04');
+INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '123', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf');
+INSERT INTO `user` VALUES ('555@qq.com', null, '123456', '0', '0', '2018-03-15 17:11:16', 'D6C0D437566CE16ECCC6B647ADF0A2D0');
+INSERT INTO `user` VALUES ('710889210@qq.com', null, '123', '0', '0', '2018-03-13 17:35:19', '096D46464FFFF4A29FBFDA723FAB7FB0');
+INSERT INTO `user` VALUES ('751728440@qq.com', null, '123456789', '0', '0', '2018-03-15 17:14:59', 'B114883FE6CEB00B3D4C4DD45CB6DDCA');
