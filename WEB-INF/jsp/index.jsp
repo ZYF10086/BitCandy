@@ -16,13 +16,12 @@
   <link rel="stylesheet" href="css/sm.min.css">
   <link rel="stylesheet" href="css/sm-extend.min.css">
   <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
   <div class="page" id="index">
-    <header class="bar bar-nav bit">
+    <!-- <header class="bar bar-nav bit">
       <h1 class="title bit">活动列表</h1>
-    </header>
+    </header> -->
     <nav class="bar bar-tab">
       <a class="tab-item active" href="/BitCandy">
         <span class="icon icon-gift"></span>
@@ -37,9 +36,9 @@
         <span class="tab-label">我的</span>
       </a>
     </nav>
-    <div class="content infinite-scroll ">
-      <div style="max-height: 100px; overflow: hidden;"><img src="http://ching-shan.com/image/data/edmund/1166.jpg" style="width: 100%; position: relative; z-index: 999; "></div>
-      <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
+    <div class="content infinite-scroll">
+      <div style="max-height: 200px; overflow: hidden;"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521128778691&di=1a1c349b725ba8c07780368d8412b3a6&imgtype=0&src=http%3A%2F%2Fwww.afinance.cn%2Flc%2FUploadFiles_8755%2F201802%2F20180226100037701.jpg" style="width: 100%; position: relative; z-index: 999; "></div>
+      <div class="content-block infinite-scroll bit-index pull-to-refresh-content" data-distance="200">
         <!-- 默认的下拉刷新层 -->
         <div class="pull-to-refresh-layer">
           <div class="preloader"></div>
@@ -60,6 +59,7 @@
   <!-- 判断网络是否可用，不可用时显示toast提示 -->
   <script>
     if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
+    $.init();
     // 加载flag
     var loading = false;
     //数据的条数
@@ -67,7 +67,7 @@
     // 最多可加载的条目
     var maxItems = c;
     // 每次加载添加多少条目
-    var itemsPerLoad = 5;
+    var itemsPerLoad = 99999;
     //数据库结果
     var resultArray = new Array();
     for(var k=0;k<c;k++){

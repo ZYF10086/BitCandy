@@ -62,7 +62,7 @@
                 <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录" disabled="disabled">
               </div>
               <div class="col-50">
-                <a href="showRegister" class="button button-big button-fill button-success login">注册</a>
+                <a href="showRegister" class="button button-big button-fill login">注册</a>
               </div>
             </div>
           </div>
