@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>比特学堂</title>
+    <title></title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -91,7 +91,7 @@
     <script type="text/javascript" src="../js/sm.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="../js/sm-extend.min.js" charset="utf-8"></script>
     <script>
-      if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }      
+      if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); alert}      
       function changeFrameHeight() {
         var ifm = document.getElementById("third-iframe");
         ifm.height = document.documentElement.clientHeight;

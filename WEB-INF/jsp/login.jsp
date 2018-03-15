@@ -22,9 +22,6 @@
         <a class="icon icon-left pull-left back bit"></a>
         <h1 class="title bit">密码登录</h1>
       </header>
-
-
-
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
         <form method="post" novalidate>
@@ -67,11 +64,9 @@
             </div>
           </div>
         </form>
-
-
         <div class="row">
           <div class="content-block-title login">点击登录即同意<a href="#" class="alert-text-title">《用户服务协议》</a></div>
-          <div class="content-block-title login1"><a href="#">忘记密码？</a></div>
+          <div class="content-block-title login1"><a href="showForget">忘记密码？</a></div>
         </div>
       </div>
     </div>
