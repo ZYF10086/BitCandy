@@ -4,10 +4,11 @@
 
 .content-block.bit-index {
     margin-top: -2.5rem;
+    /* padding: 0rem; */
 }
 
 .bar.bar-nav.bit {
-    background-color: #C20C0C;
+    background-color: #444f71;
 }
 
 a.bit,
@@ -17,7 +18,7 @@ a.bit,
 
 .bar-tab .tab-item.active,
 .bar-tab .tab-item:active {
-    color: #C20C0C;
+    color: #15b3f0;
 }
 
 .bit-img {
@@ -25,8 +26,8 @@ a.bit,
 }
 
 .bit-hot {
-    background-color: #c20c0c;
-    font-size: .1rem;
+    background-color: #15b3f0;
+    font-size: .4rem;
     color: #ffffff;
     position: absolute;
     padding: 0 .1rem 0 .1rem;
@@ -140,22 +141,22 @@ a.bit,
 }
 
 .button-danger.button-fill.login{
-    background-color: #C20C0C;
+    background-color: #444f71;
 }
 
 .button-danger.button-fill.login.active,
 .button-danger.button-fill.login:active{
-    background-color: #f00b0d;
+    background-color: #3e4e80;
 }
 
-.button-success.button-fill.login{
+/* .button-success.button-fill.login{
     background-color: #3caf36;
-}
+} */
 
-.button-success.button-fill.login.active,
+/* .button-success.button-fill.login.active,
 .button-success.button-fill.login:active{
     background-color: #32d32a;
-}
+} */
 
 .button.button-fill.button-big.telephone{
     line-height: 1.4rem;
@@ -168,7 +169,7 @@ a.bit,
 }
 
 .button-danger.button-fill.install{
-    background-color: #C20C0C;
+    background-color: #444f71;
     margin-top: 1rem;
 }
 
@@ -177,6 +178,6 @@ a.bit,
 }
 
 .button.error{
-    border: 1px solid #c20c0c;
-    color: #c20c0c;
+    border: 1px solid #444f71;
+    color: #444f71;
 }
