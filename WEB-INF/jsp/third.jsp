@@ -1,124 +1,106 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<!DOCTYPE html>
-<html lang="zh-cn">
+  <!DOCTYPE html>
+  <html lang="zh-cn">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>邮箱注册</title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>比特学堂</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <link rel="stylesheet" href="css/sm.min.css">
-  <link rel="stylesheet" href="css/sm-extend.min.css">
-  <link rel="stylesheet" href="css/style.css">
-
-</head>
-
-<body>
-  <div class="page" id="register">
-    <header class="bar bar-nav bit">
-      <a class="icon icon-left pull-left back bit"></a>
-      <h1 class="title bit">邮箱注册</h1>
-    </header>
-
-
-    <div class="content">
-      <img class="bit-img" src="https://dummyimage.com/375x150">
-      <form method="post" novalidate>
-        <div class="list-block">
-          <ul>
-            <li>
-              <div class="item-content">
-                <div class="item-media">
-                  <span class="icon icon-card"></span>
-                </div>
-                <div class="item-inner">
-                  <div class="item-input">
-                    <input type="email" name="name" placeholder="请输入电子邮箱">
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-media">
-                  <span class="icon icon-settings"></span>
-                </div>
-                <div class="item-inner">
-                  <div class="item-input">
-                    <input type="password" name="password" placeholder="请设置密码">
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-media">
-                  <span class="icon icon-edit"></span>
-                </div>
-                <div class="item-inner">
-                  <div class="item-input">
-                    <input type="password" name="repassword" placeholder="请再次确认密码">
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="content-block">
-          <div class="col-50"><input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="注册" disabled="disabled"></div>
-          <div class="row">
-            <div class="content-block-title login">点击注册即同意<a href="#">《用户服务协议》</a></div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-
-
-  <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
-  <!-- 判断网络是否可用，不可用时显示toast提示 -->
-  <script>
-    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
-    $('input').bind('input propertychange', function () {
-      var email = $("input[type='email']").val();
-      var pwd = $("input[name='password']").val();
-      var repwd = $("input[name='repassword']").val();
-      var submit = $("input[type='button']");
-      var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-      // var reg=/^[1-9]\d*$|^0$/;
-      if (Reg.test(email) && pwd != "" && repwd != "") {
-        submit.removeClass("disabled");
-        submit.removeAttr("disabled");
-      }else if (Reg.test(email) == false || pwd == "" || repwd == "") {
-        submit.addClass("disabled");
-        submit.attr("disabled", "disabled");
+    <link rel="stylesheet" href="../css/sm.min.css">
+    <link rel="stylesheet" href="../css/sm-extend.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      .loading {
+        width: 150px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
       }
-    })
-    
-    function formSubmit() {
-    var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
-    $.ajax({
-      data: text,
-      type: "post",
-      url: "/BitCandy/checkRegister",
-      success: function (response) {
-        if (response == "1") {
-          $.toast("该邮箱已被占用");
-        } else if (response == "0") {
-          $.toast("注册成功，请登录邮箱激活");
-          window.setTimeout("location='showLogin'", 1200);
+
+      .loading span {
+        display: inline-block;
+        width: 15px;
+        height: 100%;
+        margin-right: 5px;
+        background: #C20C0C;
+        -webkit-animation: load 1.04s ease infinite;
+      }
+
+      .loading span:last-child {
+        margin-right: 0px;
+      }
+
+      @-webkit-keyframes load {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
         }
       }
-    })
-  }
-  </script>
-</body>
 
-</html>
+      .loading span:nth-child(1) {
+        -webkit-animation-delay: 0.13s;
+      }
+
+      .loading span:nth-child(2) {
+        -webkit-animation-delay: 0.26s;
+      }
+
+      .loading span:nth-child(3) {
+        -webkit-animation-delay: 0.39s;
+      }
+
+      .loading span:nth-child(4) {
+        -webkit-animation-delay: 0.52s;
+      }
+
+      .loading span:nth-child(5) {
+        -webkit-animation-delay: 0.65s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page" id="third">
+      <header class="bar bar-nav bit">
+        <a class="icon icon-left pull-left back bit"></a>
+        <h1 class="title bit">${title}</h1>
+      </header>
+      <div class="content">
+        <div class="loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <iframe src="${url}" width="100%" frameborder="0" id="third-iframe" onload="changeFrameHeight()"></iframe>
+      </div>
+    </div>
+    <script type="text/javascript" src="../js/zepto.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/sm.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/sm-extend.min.js" charset="utf-8"></script>
+    <script>
+      if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }      
+      function changeFrameHeight() {
+        var ifm = document.getElementById("third-iframe");
+        ifm.height = document.documentElement.clientHeight;
+        $('.loading').remove();
+      }
+      window.onresize = function () {
+        changeFrameHeight();
+      } 
+    </script>
+  </body>
+
+  </html>

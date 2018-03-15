@@ -32,7 +32,7 @@
         <div class="card-content">
      	    <c:choose>
                	<c:when test='<%= session.getAttribute("name") != null %>' >
-          			<div class="card-content-inner text-center bit">= float.00 </div>
+          			<div class="card-content-inner text-center bit">= ${String.format("%.2f", total)} </div>
 				</c:when>
 				<c:otherwise>
 					<div class="card-content-inner text-center bit"><a href="showLogin" style="color: #959595;font-size: 1rem;">登录查看</a></div>
