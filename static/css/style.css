@@ -2,8 +2,17 @@
     margin-top: 0;
 }
 
+.bar-nav~.content{
+    top: 3.2rem;
+}
+
 .bar.bar-nav.bit {
     background-color: #444f71;
+}
+
+.bar.bit{
+    height: 3.2rem;
+    padding-top: 1rem;
 }
 
 a.bit,
@@ -144,6 +153,10 @@ a.bit,
     background-color: #3e4e80;
 }
 
+ .button.disabled.button-fill.bit {
+    color: #ccc;
+    background-color: rgba(68, 79, 113, 0.65);
+}
 /* .button-success.button-fill.login{
     background-color: #3caf36;
 } */

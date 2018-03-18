@@ -40,7 +40,7 @@
         <span class="tab-label">我的</span>
       </a>
     </nav>
-    <div class="content infinite-scroll ">
+    <div class="content infinite-scroll bar-nav~content bit">
       <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: relative; z-index: 999;">
       <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
         <!-- 默认的下拉刷新层 -->
