@@ -23,7 +23,7 @@
         <h1 class="title bit">激活成功</h1>
       </header>
       <div class="content">
-        <img class="bit-img success" src="css/ok.png">
+        <img class="bit-img success" src="images/ok.png">
         <h1 class="text-center success">恭喜您！已成功注册比特糖果！</h1>
         <h3 class="text-center">请返回比特糖果app进行登录</h3>
       </div>
