@@ -30,18 +30,6 @@
               <li>
                 <div class="item-content">
                   <div class="item-media">
-                    <span class="icon icon-me"></span>
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-input">
-                      <input type="email" name="name" placeholder="请输入电子邮箱或手机号">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="item-content">
-                  <div class="item-media">
                     <span class="icon icon-edit"></span>
                   </div>
                   <div class="item-inner">
@@ -58,7 +46,7 @@
                   </div>
                   <div class="item-inner">
                     <div class="item-input">
-                      <input type="password" name="password" placeholder="请输入密码">
+                      <input type="password" name="password2" placeholder="请输入密码">
                     </div>
                   </div>
                 </div>
@@ -66,7 +54,7 @@
             </ul>
           </div>
           <div class="content-block">
-            <div class="col-50"><a href="#" class="button button-big button-fill button-danger login">重置</a></div>
+            <div class="col-50"><a onclick="formSubmit()" class="button button-big button-fill button-danger login">重置</a></div>
           </div>
         </form>
       </div>
@@ -78,20 +66,16 @@
     <script>
       if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
       function formSubmit() {
-        var text = "name=" + $("[name=name]").val().toString() + "&password=" + $("[name=password]").val().toString();
+        var text = "password=" + $("[name=password]").val().toString() + "&password2=" + $("[name=password2]").val().toString();
         $.ajax({
           data: text,
           type: "post",
-          url: "/BitCandy/checkforlogin",
+          url: "/BitCandy/checkForPwd",
           success: function (response) {
             if (response == "1") {
-              $.toast("没有这个用户");
-            } else if (response == "2") {
-              $.toast("您的账号还没有激活~");
-            } else if (response == "3") {
-              $.toast("密码错误~");
-            } else if (response == "0") {
-              window.location.href = "mine";
+              	$.toast("修改成功");
+            }else{
+            	$.toast("修改失败");
             }
           }
         })

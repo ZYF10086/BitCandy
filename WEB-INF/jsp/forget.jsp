@@ -26,6 +26,7 @@
 
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
+        <form method="post">
         <div class="list-block">
           <ul>
             <li>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="item-inner">
                   <div class="item-input">
-                    <input type="email" placeholder="请输入电子邮箱">
+                    <input name="name" type="email" placeholder="请输入电子邮箱">
                   </div>
                 </div>
               </div>
@@ -47,17 +48,19 @@
                 </div>
                 <div class="item-inner">
                   <div class="item-input">
-                    <input type="text" placeholder="请输入验证码">
+                    <input name="code" type="text" placeholder="请输入验证码">
                   </div>
-                  <div class="col-50"><a href="#" class="button button-big telephone button-fill button-success login">获取验证码</a></div>
+                  <div class="col-50"><a onclick="formSubmit()" class="button button-big telephone button-fill button-success login">获取验证码</a></div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
         <div class="content-block">
-          <div class="col-50"><a href="#" class="button button-big button-fill button-danger login">下一步</a></div>
+          <div class="col-50"><a onclick="next()" class="button button-big button-fill button-danger login">下一步</a></div>
         </div>
+        
+        </form>
       </div>
     </div>
     <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
@@ -66,6 +69,34 @@
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
     <script>
       if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
+      
+      function formSubmit() {
+          $.ajax({
+            type: "get",
+            url: "/BitCandy/sendConfirmCode/710889210@qq.com",				//TODO 获取邮箱地址加入url
+            success: function (response) {
+              if (response == "1") {
+                $.toast("验证码发送成功");
+              } 
+            }
+          })
+        }
+      
+      function next() {
+          var text = "name=" + $("[name=name]").val().toString() + "&code=" + $("[name=code]").val().toString();
+          $.ajax({
+            data: text,
+            type: "post",
+            url: "/BitCandy/checkForChange",				
+            success: function (response) {
+              if (response == "1") {
+            	  window.location.href = "changePwd";
+              } else{
+            	$.toast("验证码错误");
+              }
+            }
+          })
+        }
     </script>
   </body>
 
