@@ -69,7 +69,7 @@
             </ul>
           </div>
           <div class="content-block">
-            <div class="col-50"><input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="注册" disabled="disabled"></div>
+            <div class="col-50"><input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled bit" value="注册" disabled="disabled"></div>
             <div class="row">
               <div class="content-block-title login">点击注册即同意<a href="#">《用户服务协议》</a></div>
             </div>

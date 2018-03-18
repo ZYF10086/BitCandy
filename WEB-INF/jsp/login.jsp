@@ -18,8 +18,8 @@
 
   <body>
     <div class="page" id="login">
-      <header class="bar bar-nav bit">
-        <a class="icon icon-left pull-left back bit"></a>
+      <header class="bar bit bar-nav bit">
+        <a class="icon bit icon-left pull-left back bit"></a>
         <h1 class="title bit">密码登录</h1>
       </header>
       <div class="content">
@@ -54,20 +54,20 @@
             </ul>
           </div>
           <div class="content-block">
-            <div class="row">
+            
               <div class="col-50">
-                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled" value="登录" disabled="disabled">
+                <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled bit" value="登录" disabled="disabled">
               </div>
-              <div class="col-50">
+              <!-- <div class="col-50">
                 <a href="showRegister" class="button button-big button-fill login">注册</a>
-              </div>
+              </div> -->
+            
+            <div class="row">
+              <div class="content-block-title login"><a href="showForget" class="alert-text-title">忘记密码</a></div>
+              <div class="content-block-title login1"><a href="showRegister">立即注册</a></div>
             </div>
           </div>
-        </form>
-        <div class="row">
-          <div class="content-block-title login">点击登录即同意<a href="#" class="alert-text-title">《用户服务协议》</a></div>
-          <div class="content-block-title login1"><a href="showForget">忘记密码？</a></div>
-        </div>
+        </form>       
       </div>
     </div>
     <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
