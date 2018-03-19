@@ -77,6 +77,7 @@
           success: function (response) {
             if (response == "1") {
               	$.toast("修改成功");
+              	window.location.href = "showLogin";
             }else{
             	$.toast("修改失败");
             }
