@@ -76,11 +76,13 @@
       function formSubmit() {
           $.ajax({
             type: "get",
-            url: "/BitCandy/sendConfirmCode/710889210@qq.com",				//TODO 获取邮箱地址加入url
+            url: "/BitCandy/sendConfirmCode/"+$("[name=name]").val().toString(),				//TODO 获取邮箱地址加入url
             success: function (response) {
               if (response == "1") {
-                $.toast("验证码发送成功");
-              } 
+               		$.toast("验证码发送成功");
+              } else if(response == "0"){
+            	  	$.toast("没有此用户");
+              }
             }
           })
         }
