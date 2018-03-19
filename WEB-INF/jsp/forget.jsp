@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>忘记密码</title>
+    <title>找回密码</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,14 +53,14 @@
                   <div class="item-input">
                     <input name="code" type="text" placeholder="请输入验证码">
                   </div>
-                  <div class="col-50"><a onclick="formSubmit()" class="button button-big telephone button-fill button-success login">获取验证码</a></div>
+                  <div class="col-50"><a onclick="formSubmit()" class="button button-big telephone button-fill login disabled bit" id="getkey" disabled="disabled">获取验证码</a></div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
         <div class="content-block">
-          <div class="col-50"><a onclick="next()" class="button button-big button-fill button-danger login">下一步</a></div>
+            <input type="button" onclick="next()" class="button button-big button-fill button-danger login disabled bit" value="登录" disabled="disabled">
         </div>
         
         </form>
@@ -102,6 +102,32 @@
             }
           })
         }
+        // 表单验证
+        $('input').bind('input propertychange', function () {
+        var email = $("input[type='email']").val();
+        var key = $("input[type='text']").val();
+        var gitkey = $('#getkey');
+        var next = $("#key");
+        var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+
+        if (Reg.test(email)) {
+          gitkey.removeClass("disabled");
+          gitkey.removeAttr("disabled");
+          if (key != ""){
+            next.removeClass("disabled");
+            next.removeAttr("disabled");
+          }
+        }
+
+        if (Reg.test(email) == false) {
+          gitkey.addClass("disabled");
+          gitkey.addClass("disabled");
+          if(Reg.test(email) && key == ""){
+            next.addClass("disabled");
+            next.addClass("disabled");
+          }
+        }
+      })
     </script>
   </body>
 
