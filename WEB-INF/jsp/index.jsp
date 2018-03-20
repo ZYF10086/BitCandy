@@ -1,68 +1,162 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="zh-cn">
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <!DOCTYPE html>
+    <html lang="zh-cn">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>活动列表</title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="full-screen" content="yes">
-  <meta name="x5-fullscreen" content="true">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>活动列表</title>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="full-screen" content="yes">
+      <meta name="x5-fullscreen" content="true">
 
-  <link rel="stylesheet" href="css/sm.min.css">
-  <link rel="stylesheet" href="css/sm-extend.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dropload.css">
-</head>
-<body>
-  <div class="page" id="index">
-    <!-- <header class="bar bar-nav bit">
-      <h1 class="title bit">活动列表</h1>
-    </header> -->
-    <nav class="bar bar-tab">
-      <a class="tab-item active" href="/BitCandy">
-        <span class="icon icon-gift"></span>
-        <span class="tab-label">糖果</span>
-      </a>
-      <a class="tab-item" href="information">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">比特学堂</span>
-      </a>
-      <a class="tab-item" href="mine">
-        <span class="icon icon-me"></span>
-        <span class="tab-label">我的</span>
-      </a>
-    </nav>
-    <div class="content">
-      <div style="max-height: 200px; overflow: hidden;"><img src="https://dummyimage.com/375x150" style="width: 100%; position: relative; z-index: 999; "></div>
-      <div class="content-block bit">
-        <!-- 默认的下拉刷新层 -->
-        <!-- <div class="pull-to-refresh-layer">
-          <div class="preloader"></div>
-          <div class="pull-to-refresh-arrow"></div>
-        </div> -->
-        <div class="card-content infinite-scroll"></div>
-        <!-- 加载提示符 -->
-        <!-- <div class="infinite-scroll-preloader">
-          <div class="preloader"></div>
+      <link rel="stylesheet" href="css/sm.min.css">
+      <link rel="stylesheet" href="css/sm-extend.min.css">
+      <link rel="stylesheet" href="css/minirefresh.min.css" />
+      <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+      <div class="page" id="index">
+        <nav class="bar bar-tab">
+          <a class="tab-item active" href="/BitCandy">
+            <span class="icon icon-gift"></span>
+            <span class="tab-label">糖果</span>
+          </a>
+          <a class="tab-item" href="information">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">比特学堂</span>
+          </a>
+          <a class="tab-item" href="mine">
+            <span class="icon icon-me"></span>
+            <span class="tab-label">我的</span>
+          </a>
+        </nav>
+        <div class="content">
+          <div style="max-height: 7.5rem;overflow: hidden;"><img src="https://dummyimage.com/375x180" style="width: 100%;"></div>
+          <div id="minirefresh" class="minirefresh-wrap">
+            <div class="minirefresh-scroll list-block media-list bit">
+              <ul class="index">
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="index">
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title index">BTC叫你领糖果啦</div>
+                        <div class="item-after">已有20人参与</div>
+                      </div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div id="end" style="text-align: center; font-size: .7rem;"></div> -->
       </div>
-    </div>
-  </div>
-  <script src="js/zepto.min.js"></script>
-  <script src="js/sm.min.js"></script>
-  <script src="js/sm-extend.min.js"></script>
-  <script src="js/dropload.min.js"></script>
+      <script src="js/zepto.min.js"></script>
+      <script src="js/sm.min.js"></script>
+      <script src="js/sm-extend.min.js"></script>
+      <script src="js/minirefresh.min.js"></script>
+      <script>
+        // 判断网络是否可用，不可用时显示toast提示
+        if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
+        // 引入任何一个主题后，都会有一个 MiniRefresh 全局变量
+        var miniRefresh = new MiniRefresh({
+          isScrollBar: false,
 
-  <script>
+          container: '#minirefresh',
+          down: {
+
+            callback: function () {
+              window.location.reload();
+
+              miniRefresh.endDownLoading();
+            }
+          },
+          up: {
+
+            callback: function () {
+              // 上拉事件
+
+              // 注意，由于默认情况是开启满屏自动加载的，所以请求失败时，请务必endUpLoading(true)，防止无限请求
+              miniRefresh.endUpLoading(true);
+            }
+          }
+        });
+      </script>
+      <!-- <script>
     // 判断网络是否可用，不可用时显示toast提示
     if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
     $.init();
@@ -223,7 +317,7 @@
         threshold: 50
       });
     });
-  </script>
-</body>
+  </script> -->
+    </body>
 
-</html>
+    </html>

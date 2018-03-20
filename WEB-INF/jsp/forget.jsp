@@ -60,7 +60,7 @@
           </ul>
         </div>
         <div class="content-block">
-            <input type="button" onclick="next()" class="button button-big button-fill button-danger login disabled bit" value="登录" disabled="disabled">
+            <input type="button" onclick="next()" class="button button-big button-fill button-danger login disabled bit" value="下一步" disabled="disabled">
         </div>
         
         </form>
@@ -107,7 +107,7 @@
         var email = $("input[type='email']").val();
         var key = $("input[type='text']").val();
         var gitkey = $('#getkey');
-        var next = $("#key");
+        var next = $("input[type='button']");
         var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
 
         if (Reg.test(email)) {
@@ -122,11 +122,11 @@
         if (Reg.test(email) == false) {
           gitkey.addClass("disabled");
           gitkey.addClass("disabled");
-          if(Reg.test(email) && key == ""){
+        }
+        if(Reg.test(email) && key == ""){
             next.addClass("disabled");
             next.addClass("disabled");
           }
-        }
       })
     </script>
   </body>

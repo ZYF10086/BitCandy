@@ -1,5 +1,45 @@
-.content-block.bit {
+.minirefresh-wrap {
+    top: 7.5rem;
+}
+
+.list-block.bit {
     margin-top: 0;
+}
+
+.minirefresh-scroll {
+    background: none;
+}
+
+.list-block li.index {
+    margin-bottom: 0.8rem;
+    background-color: #fff;
+}
+
+.list-block li:last-child.index {
+    margin-bottom: 0;
+}
+
+.list-block ul.index {
+    background: none;
+}
+
+.item-title.index {
+    line-height: 2rem;
+    font-size: .9rem;
+}
+
+.item-after {
+    line-height: 2rem;
+    font-size:.6rem;
+}
+
+.list-block .item-text {
+    height: 3.1rem;
+    -webkit-line-clamp: 3;
+}
+
+.minirefresh-theme-default .status-nomore .upwrap-tips {
+    padding: 0;
 }
 
 .bar-nav~.content{
