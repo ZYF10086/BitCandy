@@ -35,7 +35,7 @@
         <span class="icon icon-home"></span>
         <span class="tab-label">比特学堂</span>
       </a>
-      <a class="tab-item" href="mine">
+      <a class="tab-item external" href="mine">
         <span class="icon icon-me"></span>
         <span class="tab-label">我的</span>
       </a>
@@ -111,7 +111,7 @@
             + '<ul>'
             + '<li>'
             + isHot
-            + '<a href="#" class="item-link item-content">'
+            + '<a href="#" class="item-link item-content external">'
             + '<div class="item-media">'
             + '<img src="https://dummyimage.com/50x50" width="50">'
             + '</div>'
@@ -203,7 +203,7 @@
 
               // var result = '';
               // for (var i = 0; i < data.lists.length; i++) {
-              //   result += '<a class="item opacity" href="' + data.lists[i].link + '">'
+              //   result += '<a class="item opacity external" href="' + data.lists[i].link + '">'
               //     + '<img src="' + data.lists[i].pic + '" alt="">'
               //     + '<h3>' + data.lists[i].title + '</h3>'
               //     + '<span class="date">' + data.lists[i].date + '</span>'

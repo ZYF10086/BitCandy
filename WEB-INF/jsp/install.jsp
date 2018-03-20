@@ -52,7 +52,7 @@
       <div class="content-block">
         <div class="col-50">
         <c:if test="${!(empty sessionScope.name)}">
-          <a href="logout" class="button button-big button-fill button-danger install">退出登录</a>
+          <a href="logout" class="button button-big button-fill button-danger install external">退出登录</a>
         </c:if>
         </div>
       </div>

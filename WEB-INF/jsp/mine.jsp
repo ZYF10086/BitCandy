@@ -32,7 +32,7 @@
             <span class="icon icon-home"></span>
             <span class="tab-label">比特学堂</span>
           </a>
-          <a class="tab-item active" href="mine">
+          <a class="tab-item active external" href="mine">
             <span class="icon icon-me"></span>
             <span class="tab-label">我的</span>
           </a>
@@ -52,7 +52,7 @@
                             <%= session.getAttribute("name") %>
                           </c:when>
                           <c:otherwise>
-                            <a href="showLogin">立即登录</a>
+                            <a href="showLogin" class="external">立即登录</a>
                           </c:otherwise>
                         </c:choose>
                       </div>
@@ -66,7 +66,7 @@
           <div class="list-block media-list mine">
             <ul>
               <li>
-                <a href="sugar" class="item-link item-content">
+                <a href="sugar" class="item-link item-content external">
                   <div class="item-media">
                     <span class="icon icon-gift"></span>
                   </div>
@@ -79,7 +79,7 @@
               </li>
 
               <!-- <li>
-                <a href="telephone" class="item-link item-content">
+                <a href="telephone" class="item-link item-content external">
                   <div class="item-media">
                     <span class="icon icon-phone"></span>
                   </div>
@@ -103,7 +103,7 @@
               </li> -->
 
               <li>
-                <a href="third/about" class="item-link item-content">
+                <a href="third/about" class="item-link item-content external">
                   <div class="item-media">
                     <span class="icon icon-message"></span>
                   </div>
@@ -116,7 +116,7 @@
               </li>
 
               <li>
-                <a href="install" class="item-link item-content">
+                <a href="install" class="item-link item-content external">
                   <div class="item-media">
                     <span class="icon icon-settings"></span>
                   </div>

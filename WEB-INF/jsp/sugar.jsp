@@ -38,7 +38,7 @@
           			<div class="card-content-inner text-center bit">= ${String.format("%.2f", total)} </div>
 				</c:when>
 				<c:otherwise>
-					<div class="card-content-inner text-center bit"><a href="showLogin" style="color: #959595;font-size: 1rem;">登录查看</a></div>
+					<div class="card-content-inner text-center bit"><a href="showLogin" class="external" style="color: #959595;font-size: 1rem;">登录查看</a></div>
 				</c:otherwise>
 			</c:choose>
 
@@ -49,7 +49,7 @@
 
 		<c:forEach var="item" items="${candy}">
           <li>
-            <a href="${item.key}" class="item-link item-content">
+            <a href="${item.key}" class="item-link item-content external">
               <div class="item-media"><img src="https://dummyimage.com/50x50" style="width: 2.5rem;"></div>
               <div class="item-inner">
                 <div class="item-title-row">

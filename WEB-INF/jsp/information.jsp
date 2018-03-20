@@ -35,7 +35,7 @@
         <span class="icon icon-home"></span>
         <span class="tab-label">比特学堂</span>
       </a>
-      <a class="tab-item" href="mine">
+      <a class="tab-item external" href="mine">
         <span class="icon icon-me"></span>
         <span class="tab-label">我的</span>
       </a>
@@ -97,7 +97,7 @@
       var isHot;
       for (var i = lastIndex; i < lastIndex + number; i++) {
         if(i<c){
-            html += '<div class="card"><div class="card-header">' + resultArray[i][4] + '</div><div class="card-content"><div class="card-content-inner">“'+ resultArray[i][2].substr(0,60) +'…”</div></div><div class="card-footer"><span>'+resultArray[i][0]+'</span><a href="third/'+resultArray[i][3]+'" class="link">更多</a></div></div>'
+            html += '<div class="card"><div class="card-header">' + resultArray[i][4] + '</div><div class="card-content"><div class="card-content-inner">“'+ resultArray[i][2].substr(0,60) +'…”</div></div><div class="card-footer"><span>'+resultArray[i][0]+'</span><a href="third/'+resultArray[i][3]+'" class="link external">更多</a></div></div>'
             cardNum ++;
         }
       }
