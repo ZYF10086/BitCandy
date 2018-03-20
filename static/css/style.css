@@ -1,5 +1,5 @@
-.minirefresh-wrap {
-    top: 7.5rem;
+.minirefresh-theme-default .minirefresh-downwrap {
+    top: .8rem;
 }
 
 .list-block.bit {
@@ -11,9 +11,9 @@
 }
 
 .list-block li.index {
-    margin-bottom: 0.8rem;
+    margin-bottom: .4rem;
     background-color: #fff;
-    box-shadow: 0 1px 2px #CCCCCC;
+    box-shadow: 0 0.05rem 0.1rem rgba(0,0,0,.3)
 }
 
 .list-block li:last-child.index {
@@ -39,7 +39,7 @@
 }
 
 .bar-nav~.content{
-    top: 3.2rem;
+    top: 3.6rem;
 }
 
 .bar.bar-nav.bit {
@@ -47,8 +47,8 @@
 }
 
 .bar.bit{
-    height: 3.2rem;
-    padding-top: 1rem;
+    height: 3.6rem;
+    padding-top: 1.4rem;
 }
 
 a.bit,
@@ -67,11 +67,11 @@ a.bit,
 
 .bit-hot {
     background-color: #15b3f0;
-    font-size: .4rem;
+    font-size: .5rem;
     color: #ffffff;
     position: absolute;
     padding: 0 .1rem 0 .1rem;
-    border-radius: .1rem;
+    border-bottom-right-radius: .1rem;
 }
 
 .bit-hot.seat {
@@ -88,6 +88,15 @@ a.bit,
 
 .item-title.bit {
     line-height: 2;
+}
+
+.card.bit {
+    margin: 0;
+    margin-bottom: .4rem;
+}
+
+.card:last-child.bit {
+    margin-bottom: 0!important;
 }
 
 .card-content-inner.bit {

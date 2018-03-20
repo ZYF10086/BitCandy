@@ -30,39 +30,41 @@
       <div class="content">
         <img class="bit-img" src="https://dummyimage.com/375x150">
         <form method="post">
-        <div class="list-block">
-          <ul>
-            <li>
-              <div class="item-content">
-                <div class="item-media">
-                  <span class="icon icon-me"></span>
-                </div>
-                <div class="item-inner">
-                  <div class="item-input">
-                    <input name="name" type="email" placeholder="请输入电子邮箱">
+          <div class="list-block">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-media">
+                    <span class="icon icon-me"></span>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <input name="name" type="email" placeholder="请输入电子邮箱">
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-            <li>
-              <div class="item-content">
-                <div class="item-media">
-                  <span class="icon icon-edit"></span>
-                </div>
-                <div class="item-inner">
-                  <div class="item-input">
-                    <input name="code" type="text" placeholder="请输入验证码">
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media">
+                    <span class="icon icon-edit"></span>
                   </div>
-                  <input type="button" onclick="gkey(this)" class="button button-fill login bit disabled btn" style="width:6rem;" value="获取验证码" id="gitkey" disabled="disabled">
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <input name="code" type="text" placeholder="请输入验证码">
+                    </div>
+                    <input type="button" onclick="gkey()" class="button button-fill login bit disabled btn" style="width:6rem;" value="获取验证码"
+                      disabled="disabled">
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="content-block">
-            <input type="button" onclick="next()" class="button button-big button-fill button-danger login disabled bit" value="下一步" disabled="disabled">
-        </div>
-        
+              </li>
+            </ul>
+          </div>
+          <div class="content-block">
+            <input type="button" onclick="next()" class="button button-big button-fill button-danger login disabled bit" value="下一步"
+              disabled="disabled">
+          </div>
+
         </form>
       </div>
     </div>
@@ -72,56 +74,9 @@
     <!-- 判断网络是否可用，不可用时显示toast提示 -->
     <script>
       if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
-      
-      function gkey(gitkey) {
-          var countdown=60;
-          var gitkey = $('.btn');
-          if (countdown == 0) { 
-            gitkey.removeAttribute("disabled");
-            gitkey.removeAttr("disabled");    
-            gitkey.value="获取验证码"; 
-            countdown = 60; 
-            return;
-          } else { 
-                gitkey.addClass("disabled");
-                gitkey.attr("disabled", "disabled");
-                gitkey.value="重新发送(" + countdown + ")"; 
-                countdown--; 
-            } 
-          setTimeout(function() { 
-              gkey(gitkey) }
-              ,1000) 
- 
-          $.ajax({
-            type: "get",
-            url: "/BitCandy/sendConfirmCode/"+$("[name=name]").val().toString(),				//TODO 获取邮箱地址加入url
-            success: function (response) {
-              if (response == "1") {
-               		$.toast("验证码发送成功");
-              } else if(response == "0"){
-            	  	$.toast("没有此用户");
-              }
-            }
-          })
-        }
-      
-      function next() {
-          var text = "name=" + $("[name=name]").val().toString() + "&code=" + $("[name=code]").val().toString();
-          $.ajax({
-            data: text,
-            type: "post",
-            url: "/BitCandy/checkForChange",				
-            success: function (response) {
-              if (response == "1") {
-            	  window.location.href = "changePwd";
-              } else{
-            	$.toast("验证码错误");
-              }
-            }
-          })
-        }
-        // 表单验证
-        $('input').bind('input propertychange', function () {
+
+      // 表单验证
+      $('input').bind('input propertychange', function () {
         var email = $("input[type='email']").val();
         var key = $("input[type='text']").val();
         var gitkey = $('.btn');
@@ -131,7 +86,7 @@
         if (Reg.test(email)) {
           gitkey.removeClass("disabled");
           gitkey.removeAttr("disabled");
-          if (key != ""){
+          if (key != "") {
             next.removeClass("disabled");
             next.removeAttr("disabled");
           }
@@ -140,11 +95,62 @@
         if (Reg.test(email) == false) {
           gitkey.addClass("disabled");
           gitkey.attr("disabled", "disabled");
-          if(Reg.test(email) && key == ""){
+          if (Reg.test(email) && key == "") {
             next.addClass("disabled");
             next.attr("disabled", "disabled");
           }
-      })
+        }
+      });
+
+      var countdown = 60;
+      function check() {
+        var gitkey = $('.btn');
+        if (countdown == 0) {
+          gitkey.removeClass("disabled");
+          gitkey.removeAttr("disabled");
+          gitkey.val("获取验证码");
+          countdown = 60;
+          return;
+        } else {
+          gitkey.addClass("disabled");
+          gitkey.attr("disabled", "disabled");
+          gitkey.val("重新发送(" + countdown + ")");
+          countdown--;
+          setTimeout('check()', 1000);
+        }
+      }
+
+      function gkey() {
+        $.ajax({
+          type: "get",
+          url: "/BitCandy/sendConfirmCode/" + $("[name=name]").val().toString(), //TODO 获取邮箱地址加入url
+          success: function (response) {
+            if (response == "1") {
+              $.toast("验证码发送成功");
+              check();
+            } else if (response == "0") {
+              $.toast("没有此用户");
+            }
+          }
+        })
+      }
+
+      function next() {
+        var text = "name=" + $("[name=name]").val().toString() + "&code=" + $("[name=code]").val().toString();
+        $.ajax({
+          data: text,
+          type: "post",
+          url: "/BitCandy/checkForChange",
+          success: function (response) {
+            if (response == "1") {
+              window.location.href = "changePwd";
+            } else {
+              $.toast("验证码错误");
+            }
+          }
+        })
+      }
+
     </script>
   </body>
 
