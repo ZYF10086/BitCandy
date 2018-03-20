@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-15 17:38:16
+Date: 2018-03-20 21:43:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,10 +21,10 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) NOT NULL,
+  `content` text NOT NULL,
   `icon` varchar(200) NOT NULL,
   `end_time` datetime NOT NULL,
-  `type` varchar(20) NOT NULL COMMENT '1:EOS;2:BIG;3:PRS;4:BTC;',
+  `title` varchar(200) NOT NULL COMMENT '1:EOS;2:BIG;3:PRS;4:BTC;',
   `is_hot` int(11) NOT NULL,
   `interest_rate` int(11) NOT NULL,
   `member_count` int(11) NOT NULL,
@@ -99,7 +99,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '123', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf');
-INSERT INTO `user` VALUES ('555@qq.com', null, '123456', '0', '0', '2018-03-15 17:11:16', 'D6C0D437566CE16ECCC6B647ADF0A2D0');
-INSERT INTO `user` VALUES ('710889210@qq.com', null, '123', '0', '0', '2018-03-13 17:35:19', '096D46464FFFF4A29FBFDA723FAB7FB0');
-INSERT INTO `user` VALUES ('751728440@qq.com', null, '123456789', '0', '0', '2018-03-15 17:14:59', 'B114883FE6CEB00B3D4C4DD45CB6DDCA');
+INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '202CB962AC59075B964B07152D234B70', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf');
+INSERT INTO `user` VALUES ('710889210@qq.com', null, 'BCBE3365E6AC95EA2C0343A2395834DD', '0', '1', '2018-03-18 20:31:55', '096D46464FFFF4A29FBFDA723FAB7FB0');
