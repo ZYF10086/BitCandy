@@ -61,13 +61,10 @@
               <div class="col-50">
                 <input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled bit" value="登录" disabled="disabled">
               </div>
-              <!-- <div class="col-50">
-                <a href="showRegister" class="button button-big button-fill login">注册</a>
-              </div> -->
             
             <div class="row">
-              <div class="content-block-title login"><a href="forget" class="alert-text-title">忘记密码</a></div>
-              <div class="content-block-title login1"><a href="showRegister">立即注册</a></div>
+              <div class="content-block-title login"><a href="forget" class="alert-text-title external">忘记密码</a></div>
+              <div class="content-block-title login1"><a href="showRegister" class="external">立即注册</a></div>
             </div>
           </div>
         </form>       

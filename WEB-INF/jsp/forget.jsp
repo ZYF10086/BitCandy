@@ -53,7 +53,7 @@
                   <div class="item-input">
                     <input name="code" type="text" placeholder="请输入验证码">
                   </div>
-                  <div class="col-50"><a onclick="formSubmit()" class="button button-big telephone button-fill login disabled bit" id="getkey" disabled="disabled">获取验证码</a></div>
+                  <input type="button" onclick="gkey(this)" class="button button-fill login bit disabled btn" style="width:6rem;" value="获取验证码" id="gitkey" disabled="disabled">
                 </div>
               </div>
             </li>
@@ -73,7 +73,25 @@
     <script>
       if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
       
-      function formSubmit() {
+      function gkey(gitkey) {
+          var countdown=60;
+          var gitkey = $('.btn');
+          if (countdown == 0) { 
+            gitkey.removeAttribute("disabled");
+            gitkey.removeAttr("disabled");    
+            gitkey.value="获取验证码"; 
+            countdown = 60; 
+            return;
+          } else { 
+                gitkey.addClass("disabled");
+                gitkey.attr("disabled", "disabled");
+                gitkey.value="重新发送(" + countdown + ")"; 
+                countdown--; 
+            } 
+          setTimeout(function() { 
+              gkey(gitkey) }
+              ,1000) 
+ 
           $.ajax({
             type: "get",
             url: "/BitCandy/sendConfirmCode/"+$("[name=name]").val().toString(),				//TODO 获取邮箱地址加入url
@@ -106,7 +124,7 @@
         $('input').bind('input propertychange', function () {
         var email = $("input[type='email']").val();
         var key = $("input[type='text']").val();
-        var gitkey = $('#getkey');
+        var gitkey = $('.btn');
         var next = $("input[type='button']");
         var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
 
@@ -121,11 +139,10 @@
 
         if (Reg.test(email) == false) {
           gitkey.addClass("disabled");
-          gitkey.addClass("disabled");
-        }
-        if(Reg.test(email) && key == ""){
+          gitkey.attr("disabled", "disabled");
+          if(Reg.test(email) && key == ""){
             next.addClass("disabled");
-            next.addClass("disabled");
+            next.attr("disabled", "disabled");
           }
       })
     </script>

@@ -52,14 +52,14 @@
                 <div class="item-input">
                   <input type="email" placeholder="请输入验证码">
                 </div>
-                <div class="col-50"><a href="#" class="button button-big telephone button-fill button-success login">获取验证码</a></div>
+                <input type="button" class="button button-fill login bit disabled btn" value="获取验证码" id="gitkey" disabled="disabled">
               </div>
             </div>
           </li>
         </ul>
       </div>
       <div class="content-block">
-        <div class="col-50"><a href="#" class="button button-big button-fill button-danger login">绑定</a></div>
+          <input type="button"  class="button button-big button-fill button-danger login disabled bit" value="绑定" disabled="disabled">
       </div>
     </div>
   </div>

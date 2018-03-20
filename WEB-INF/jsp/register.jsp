@@ -74,7 +74,7 @@
           <div class="content-block">
             <div class="col-50"><input type="button" onclick="formSubmit()" class="button button-big button-fill button-danger login disabled bit" value="注册" disabled="disabled"></div>
             <div class="row">
-              <div class="content-block-title login">点击注册即同意<a href="#">《用户服务协议》</a></div>
+              <div class="content-block-title login">点击注册即同意<a href="#" class="external">《用户服务协议》</a></div>
             </div>
           </div>
         </form>
@@ -108,6 +108,16 @@
       function formSubmit() {
         var pwd = $("input[name='password']").val();
         var repwd = $("input[name='repassword']").val();
+        var pwdlength = $("input[name='password']").val().length;
+        var Reg = /^[0-9]+$/;
+        if(pwdlength < 8){
+          $.toast("密码至少为八位");
+          return;
+        }
+        if (Reg.test(pwd)){
+          $.toast("密码不能为纯数字");
+          return;
+        }
         if(pwd != repwd) {
           $.toast("两次输入密码不一致");
           return;
@@ -122,7 +132,7 @@
               $.toast("该邮箱已被占用");
             } else if (response == "0") {
               $.toast("注册成功，请登录邮箱激活");
-              setTimeout("window.location.href='showLogin'", 1200);
+              setTimeout("window.location.href='showLogin'", 1000);
             }
           }
         })

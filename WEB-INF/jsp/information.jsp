@@ -19,7 +19,6 @@
       <link rel="stylesheet" href="css/sm.min.css">
       <link rel="stylesheet" href="css/sm-extend.min.css">
       <link rel="stylesheet" href="css/style.css">
-
     </head>
 
     <body>

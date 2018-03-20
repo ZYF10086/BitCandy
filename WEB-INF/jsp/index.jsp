@@ -15,7 +15,7 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
       <meta name="full-screen" content="yes">
       <meta name="x5-fullscreen" content="true">
-
+      
       <link rel="stylesheet" href="css/sm.min.css">
       <link rel="stylesheet" href="css/sm-extend.min.css">
       <link rel="stylesheet" href="css/minirefresh.min.css" />
@@ -33,7 +33,7 @@
             <span class="icon icon-home"></span>
             <span class="tab-label">比特学堂</span>
           </a>
-          <a class="tab-item" href="mine">
+          <a class="tab-item external" href="mine">
             <span class="icon icon-me"></span>
             <span class="tab-label">我的</span>
           </a>
@@ -103,5 +103,4 @@
         });
       </script>
     </body>
-
     </html>
