@@ -15,7 +15,7 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
       <meta name="full-screen" content="yes">
       <meta name="x5-fullscreen" content="true">
-      
+
       <link rel="stylesheet" href="css/sm.min.css">
       <link rel="stylesheet" href="css/sm-extend.min.css">
       <link rel="stylesheet" href="css/minirefresh.min.css" />
@@ -29,7 +29,7 @@
             <span class="icon icon-gift"></span>
             <span class="tab-label">糖果</span>
           </a>
-          <a class="tab-item external" href="information">
+          <a class="tab-item" href="information">
             <span class="icon icon-home"></span>
             <span class="tab-label">比特学堂</span>
           </a>
@@ -39,9 +39,9 @@
           </a>
         </nav>
         <div class="content">
-          <div style="max-height: 7.5rem;overflow: hidden;"><img src="https://dummyimage.com/375x180" style="width: 100%;"></div>
           <div id="minirefresh" class="minirefresh-wrap">
             <div class="minirefresh-scroll list-block media-list bit">
+              <div style="max-height: 7.5rem;overflow: hidden;"><img src="https://dummyimage.com/375x180" style="width: 100%;"></div>
               <ul class="index" id="activity">
                 <!-- <li class="index">
                   <span class="bit-hot">HOT</span>
@@ -76,7 +76,7 @@
                 hot = '<span class="bit-hot">HOT</span>';
               }
               $("#activity").append(
-                '<li class="index">' + hot + '<a href="#" class="item-link item-content"><div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title index">' + item.type + '</div><div class="item-after">已有' + item.member + '人参与</div></div><div class="item-text">' + item.title + '</div></div></a></li>'
+                '<li class="index">' + hot + '<a href="#" class="item-link item-content"><div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title index">' + item.title + '</div><div class="item-after">已有' + item.member + '人参与</div></div><div class="item-text">' + item.content + '</div></div></a></li>'
               )
             });
           });
@@ -103,4 +103,5 @@
         });
       </script>
     </body>
+
     </html>

@@ -22,9 +22,6 @@
 
   <body>
     <div class="page" id="login">
-      <header class="bar bar-nav bit">
-        <h1 class="title bit">激活成功</h1>
-      </header>
       <div class="content">
         <img class="bit-img success" src="images/ok.png">
         <h1 class="text-center success">恭喜您！已成功注册比特糖果！</h1>
