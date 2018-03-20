@@ -144,7 +144,6 @@
             next.addClass("disabled");
             next.attr("disabled", "disabled");
           }
-        }
       })
     </script>
   </body>

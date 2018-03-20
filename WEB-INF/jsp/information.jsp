@@ -1,153 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="zh-cn">
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <!DOCTYPE html>
+    <html lang="zh-cn">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>活动列表</title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="full-screen" content="yes">
-  <meta name="x5-fullscreen" content="true">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>活动列表</title>
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="full-screen" content="yes">
+      <meta name="x5-fullscreen" content="true">
 
-  <link rel="stylesheet" href="css/sm.min.css">
-  <link rel="stylesheet" href="css/sm-extend.min.css">
-  <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/sm.min.css">
+      <link rel="stylesheet" href="css/sm-extend.min.css">
+      <link rel="stylesheet" href="css/style.css">
+    </head>
 
-</head>
-<body>
-  <div class="page" id="index">
-    <header class="bar bar-nav bit">
-      <h1 class="title bit">比特学堂</h1>
-    </header>
-    <nav class="bar bar-tab">
-      <a class="tab-item" href="/BitCandy">
-        <span class="icon icon-gift"></span>
-        <span class="tab-label">糖果</span>
-      </a>
-      <a class="tab-item active" href="information">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">比特学堂</span>
-      </a>
-      <a class="tab-item external" href="mine">
-        <span class="icon icon-me"></span>
-        <span class="tab-label">我的</span>
-      </a>
-    </nav>
-    <div class="content infinite-scroll bar-nav~content bit">
-      <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: relative; z-index: 999;">
-      <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
-        <!-- 默认的下拉刷新层 -->
-        <div class="pull-to-refresh-layer">
-          <div class="preloader"></div>
-          <div class="pull-to-refresh-arrow"></div>
+    <body>
+      <div class="page" id="index">
+        <header class="bar bar-nav bit">
+          <h1 class="title bit">比特学堂</h1>
+        </header>
+        <nav class="bar bar-tab">
+          <a class="tab-item" href="/BitCandy">
+            <span class="icon icon-gift"></span>
+            <span class="tab-label">糖果</span>
+          </a>
+          <a class="tab-item active" href="information">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">比特学堂</span>
+          </a>
+          <a class="tab-item" href="mine">
+            <span class="icon icon-me"></span>
+            <span class="tab-label">我的</span>
+          </a>
+        </nav>
+        <div class="content">
+          <img src="https://dummyimage.com/375x100" alt="" style="width: 100%; position: relative; z-index: 999;">
+          <div class="content-block bit-index pull-to-refresh-content" data-distance="50">
+            <!-- 默认的下拉刷新层 -->
+            <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <div class="content-card"></div>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+              <div class="preloader"></div>
+            </div>
+            <div id="end" style="text-align: center; font-size: .7rem;"></div>
+          </div>
         </div>
-        <div class="content-card"></div>
-        <!-- 加载提示符 -->
-        <div class="infinite-scroll-preloader">
-          <div class="preloader"></div>
-        </div>
-        <div id="end" style="text-align: center; font-size: .7rem;"></div>
       </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
-  <!-- 判断网络是否可用，不可用时显示toast提示 -->
-  <script>
-    if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
-    // 加载flag
-    var loading = false;
-    //数据的条数
-    var c = <c:out value="${result.size()}" />;
-    // 最多可加载的条目
-    var maxItems = c;
-    // 每次加载添加多少条目
-    var itemsPerLoad = 5;
-    //数据库结果
-    var resultArray = new Array();
-    for(var k=0;k<c;k++){
-      resultArray[k] = new Array();
-    }
-    var cardNum = 0;
-    function getData(){
-      var count = 0;
-      <c:forEach items="${result}" var="information" >
-        resultArray[count][0] = '<c:out value="${information.getAddtime()}" />';
-        resultArray[count][1] = <c:out value='${information.getClick()}' />;
-        resultArray[count][2] = '<c:out value="${information.getContent()}" />';
-        resultArray[count][3] = <c:out value="${information.getId()}" />;
-        resultArray[count][4] = '<c:out value="${information.getTitle()}" />';
-        resultArray[count][5] = '<c:out value="${information.getUrl()}" />';
-        count++;
-      </c:forEach>
-    }
-    //获取数据库数据
-    getData();
-    function addItems(number, lastIndex) {
-      // 生成新条目的HTML
-      var html = '';
-      var isHot;
-      for (var i = lastIndex; i < lastIndex + number; i++) {
-        if(i<c){
-            html += '<div class="card"><div class="card-header">' + resultArray[i][4] + '</div><div class="card-content"><div class="card-content-inner">“'+ resultArray[i][2].substr(0,60) +'…”</div></div><div class="card-footer"><span>'+resultArray[i][0]+'</span><a href="third/'+resultArray[i][3]+'" class="link external">更多</a></div></div>'
-            cardNum ++;
+      <script type="text/javascript" src="js/zepto.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="js/sm.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="js/sm-extend.min.js" charset="utf-8"></script>
+      <script>
+        // 判断网络是否可用，不可用时显示toast提示
+        if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
+        function getInfo() {
+          $.getJSON("/BitCandy/getInfo", function (data) {
+            
+            $.each(data, function (i, item) {
+              $("#activity").append(
+                '<li class="index"><a href="#" class="item-link item-content"><div class="item-media"><img src="https://dummyimage.com/250x250" style="width: 1.8rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title index">' + item.type + '</div><div class="item-after">已有' + item.member + '人参与</div></div><div class="item-text">' + item.title + '</div></div></a></li>'
+              )
+            });
+          });
         }
-      }
-      // 添加新条目
-      $('.infinite-scroll .content-card').append(html);
+        getInfo();
+        // 引入任何一个主题后，都会有一个 MiniRefresh 全局变量
+        var miniRefresh = new MiniRefresh({
+          isScrollBar: false,
+          container: '#minirefresh',
+          down: {
+            callback: function () {
+              $("#activity").html("");//清空info内容
+              getInfo();
+              miniRefresh.endDownLoading();
+            }
+          },
+          up: {
+            callback: function () {
+              // 上拉事件
+              // 注意，由于默认情况是开启满屏自动加载的，所以请求失败时，请务必endUpLoading(true)，防止无限请求
+              miniRefresh.endUpLoading(true);
+            }
+          }
+        });
+      </script>
+    </body>
 
-    }
-    //预先加载5条
-    addItems(itemsPerLoad, 0);
-    // 上次加载的序号
-    var lastIndex = cardNum;
-    // 注册'infinite'事件处理函数
-    $(document).on('infinite', '.infinite-scroll', function () {
-      // 如果正在加载，则退出
-      if (loading) return;
-      // 设置flag
-      loading = true;
-      // 模拟0.5s的加载过程
-      setTimeout(function () {
-        // 重置加载flag
-        loading = false;
-        if (lastIndex >= maxItems) {
-          // 加载完毕，则注销无限加载事件，以防不必要的加载
-          $.detachInfiniteScroll($('.infinite-scroll'));
-          // 删除加载提示符
-          $('.infinite-scroll-preloader').remove();
-          // 加载完毕提示
-          $('#end').append("————我是有底线的————")
-          return;
-        }
-        // 更新最后加载的序号
-        lastIndex = $('.content-card li').length;
-        //容器发生改变,如果是js滚动，需要刷新滚动
-        $.refreshScroller();
-      }, 500);
-    });
-
-    $.init();
-    $.initPullToRefresh('.pull-to-refresh-content');
-    // 添加'refresh'监听器
-    $(document).on('refresh', '.pull-to-refresh-content', function (e) {
-      // 模拟2s的加载过程
-      window.location.reload();
-      window.onload = function() {
-        $.pullToRefreshDone('.pull-to-refresh-content');
-      }
-      $.destroyPullToRefresh(ptrContent) //销毁/禁用 下拉刷新
-    });
-  </script>
-
-</body>
-
-</html>
+    </html>
