@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-20 21:43:11
+Date: 2018-03-20 22:12:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,7 +23,7 @@ CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text NOT NULL,
   `icon` varchar(200) NOT NULL,
-  `end_time` datetime NOT NULL,
+  `start_time` datetime NOT NULL COMMENT '开始时间',
   `title` varchar(200) NOT NULL COMMENT '1:EOS;2:BIG;3:PRS;4:BTC;',
   `is_hot` int(11) NOT NULL,
   `interest_rate` int(11) NOT NULL,
