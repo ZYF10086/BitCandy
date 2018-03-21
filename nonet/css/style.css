@@ -1,16 +1,5 @@
-.card-content-inner.info {
-    position: relative;
-    overflow: hidden;
-    line-height: 1.05rem;
-    height: 3.9rem;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-}
-
-a:active.mistake {
-    background-color: rgba(111, 126, 171, 0.91);
+.page{
+    background-color: #ffffff;
 }
 
 .minirefresh-theme-default .minirefresh-downwrap {
@@ -54,7 +43,7 @@ a:active.mistake {
 
 
 a:active.bit {
-    color: rgba(111, 126, 171, 0.91);
+    background-color: rgba(111, 126, 171, 0.91);
 }
 
 .item-after {
@@ -256,7 +245,8 @@ a.bit,
 }
 
 .bit-img.error{
-    margin-top: 5rem; 
+    margin-top: 6rem; 
+    width: 10rem;
 }
 
 .bit-img.success{

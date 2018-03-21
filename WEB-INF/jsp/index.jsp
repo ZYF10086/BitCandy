@@ -29,7 +29,7 @@
             <span class="icon icon-gift"></span>
             <span class="tab-label">糖果</span>
           </a>
-          <a class="tab-item external" href="information">
+          <a class="tab-item" href="information">
             <span class="icon icon-home"></span>
             <span class="tab-label">比特学堂</span>
           </a>

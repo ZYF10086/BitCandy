@@ -7,7 +7,7 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>活动列表</title>
+      <title>比特学堂</title>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
       <meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,6 +45,7 @@
           <div id="minirefresh" class="minirefresh-wrap">
             <div class="minirefresh-scroll">
               <div style="max-height: 10rem;overflow: hidden;"><img src="images/7.jpg" style="width: 100%;"></div>
+              <div id="passage"></div>
 
             </div>
           </div>
@@ -58,14 +59,14 @@
         // 判断网络是否可用，不可用时显示toast提示
         if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
         function getInfo() {
-           $.getJSON("/BitCandy/getInformation", function (data) {
-             console.log(data);
-             $.each(data, function (i, item) {
-          $(".minirefresh-scroll").append(
-            '<div class="card bit"><div class="card-header">' + 456 + '</div><div class="card-content"><div class="card-content-inner">“' + 456 + '…”</div></div><div class="card-footer"><span>' + 456 + '</span><a href="third/' + 456 + '" class="link">更多</a></div></div>'
-          )
-             });
-           });
+          $.getJSON("/BitCandy/getInformation", function (data) {
+            console.log(data);
+            $.each(data, function (i, item) {
+              $("#passage").append(
+                '<div class="card bit"><div class="card-header">' + item.title + '</div><div class="card-content"><div class="card-content-inner info">' + item.content + '…</div></div><div class="card-footer"><span>' + item.addtime + '</span><a href="third/' + item.id + '" class="link">更多</a></div></div>'
+              )
+            });
+          });
         }
         getInfo();
 
@@ -75,8 +76,8 @@
           container: '#minirefresh',
           down: {
             callback: function () {
-               $(".minirefresh-scroll").html("");//清空info内容
-               getInfo();
+              $("#passage").html("");//清空info内容
+              getInfo();
               miniRefresh.endDownLoading();
             }
           },
