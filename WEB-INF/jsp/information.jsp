@@ -58,17 +58,15 @@
         // 判断网络是否可用，不可用时显示toast提示
         if (window.navigator.onLine == false) { $.toast("无可用网络，请检查网络设置~"); }
         function getInfo() {
-          // $.getJSON("https://bitcandy.one/bc/getbitclass", function (data) {
-          //   console.log(data);
-          //   $.each(data, function (i, item) {
+           $.getJSON("/BitCandy/getInformation", function (data) {
+             console.log(data);
+             $.each(data, function (i, item) {
           $(".minirefresh-scroll").append(
             '<div class="card bit"><div class="card-header">' + 456 + '</div><div class="card-content"><div class="card-content-inner">“' + 456 + '…”</div></div><div class="card-footer"><span>' + 456 + '</span><a href="third/' + 456 + '" class="link">更多</a></div></div>'
           )
-          //   });
-          // });
+             });
+           });
         }
-        getInfo();
-        getInfo();
         getInfo();
 
         // 引入任何一个主题后，都会有一个 MiniRefresh 全局变量
@@ -77,8 +75,8 @@
           container: '#minirefresh',
           down: {
             callback: function () {
-              // $(".minirefresh-scroll").html("");//清空info内容
-              // getInfo();
+               $(".minirefresh-scroll").html("");//清空info内容
+               getInfo();
               miniRefresh.endDownLoading();
             }
           },
