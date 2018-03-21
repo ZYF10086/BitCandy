@@ -40,10 +40,10 @@
 
         <div class="content">
           <div class="list-block media-list mine">
-            <ul>
+            <ul class="list-block ul mine ">
               <li>
                 <div class="item-content mine">
-                  <div class="item-media"><img class="radius" src="https://dummyimage.com/250x250" style="width: 4rem;"></div>
+                  <div class="item-media"><img class="radius" src="images/5.png" style="width: 4rem;"></div>
                   <div class="item-inner">
                     <div class="item-title-row">
                       <div class="item-title mine">
@@ -52,7 +52,7 @@
                             <%= session.getAttribute("name") %>
                           </c:when>
                           <c:otherwise>
-                            <a href="showLogin" class="external">立即登录</a>
+                            <a href="showLogin" class="external amine bit">立即登录</a>
                           </c:otherwise>
                         </c:choose>
                       </div>

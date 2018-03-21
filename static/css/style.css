@@ -1,5 +1,5 @@
 .minirefresh-theme-default .minirefresh-downwrap {
-    top: .8rem;
+    top: .7rem;
 }
 
 .list-block.bit {
@@ -24,9 +24,22 @@
     background: none;
 }
 
+.list-block ul.mine{
+    background-color: #444f71;
+}
+
+.amine{
+    color: rgba(255, 255, 255, 0.92);
+}
+
 .item-title.index {
     line-height: 2rem;
     font-size: .9rem;
+}
+
+
+a:active.bit {
+    color: rgba(111, 126, 171, 0.91);
 }
 
 .item-after {
@@ -66,7 +79,7 @@ a.bit,
 }
 
 .bit-hot {
-    background-color: #15b3f0;
+    background-color: #109cdd;
     font-size: .5rem;
     color: #ffffff;
     position: absolute;
@@ -152,6 +165,7 @@ a.bit,
 .item-title.mine {
     margin-top: 1.5em;
     margin-left: 0.5rem;
+    color: #fff;
 }
 
 .badge.no {
