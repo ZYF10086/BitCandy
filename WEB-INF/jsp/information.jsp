@@ -9,7 +9,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>比特学堂</title>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -24,9 +23,6 @@
 
     <body>
       <div class="page" id="index">
-        <!-- <header class="bar bar-nav bit">
-          <h1 class="title bit">比特学堂</h1>
-        </header> -->
         <nav class="bar bar-tab">
           <a class="tab-item" href="/BitCandy">
             <span class="icon icon-gift"></span>
@@ -44,7 +40,7 @@
         <div class="content">
           <div id="minirefresh" class="minirefresh-wrap">
             <div class="minirefresh-scroll">
-              <div style="max-height: 10rem;overflow: hidden;"><img src="images/7.jpg" style="width: 100%;"></div>
+              <div style="max-height: 10rem;overflow: hidden;"><img src="images/2.jpg" style="width: 100%;"></div>
               <div id="passage"></div>
 
             </div>

@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>找回密码</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -28,7 +27,7 @@
       </header>
 
       <div class="content">
-        <img class="bit-img" src="https://dummyimage.com/375x150">
+        <!-- <img class="bit-img" src="https://dummyimage.com/375x150"> -->
         <form method="post">
           <div class="list-block">
             <ul>

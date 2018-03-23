@@ -8,7 +8,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>我的</title>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -43,7 +42,7 @@
             <ul class="list-block ul mine ">
               <li>
                 <div class="item-content mine">
-                  <div class="item-media"><img class="radius" src="images/5.png" style="width: 4rem;"></div>
+                  <div class="item-media"><img class="radius" src="images/4.png" style="width: 4rem;"></div>
                   <div class="item-inner">
                     <div class="item-title-row">
                       <div class="item-title mine">
@@ -77,7 +76,7 @@
                   </div>
                 </a>
               </li>
-
+              <!-- 电话号码绑定 -->
               <!-- <li>
                 <a href="telephone" class="item-link item-content external">
                   <div class="item-media">

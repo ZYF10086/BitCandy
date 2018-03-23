@@ -9,7 +9,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>活动列表</title>
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -41,7 +40,7 @@
         <div class="content">
           <div id="minirefresh" class="minirefresh-wrap">
             <div class="minirefresh-scroll list-block media-list bit">
-              <div style="max-height: 11rem;overflow: hidden;"><img src="images/8.jpg" style="width: 100%;"></div>
+              <div style="max-height: 11rem;overflow: hidden;"><img src="images/1.jpg" style="width: 100%;"></div>
               <ul class="index" id="activity">
                 <!-- <li class="index">
                   <span class="bit-hot">HOT</span>
@@ -52,7 +51,7 @@
                         <div class="item-title index">BTC叫你领糖果啦</div>
                         <div class="item-after">已有20人参与</div>
                       </div>
-                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或或hhhhhhhhhhhhhhhhhhhh</div>
+                      <div class="item-text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
                     </div>
                   </a>
                 </li> -->
@@ -76,7 +75,7 @@
                 hot = '<span class="bit-hot">HOT</span>';
               }
               $("#activity").append(
-                '<li class="index">' + hot + '<a href="#" class="item-link item-content"><div class="item-media"><img src="images/4.png" style="width: 1.8rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title index">' + item.title + '</div><div class="item-after">已有' + item.member + '人参与</div></div><div class="item-text">' + item.content + '</div></div></a></li>'
+                '<li class="index">' + hot + '<a href="#" class="item-link item-content"><div class="item-media"><img src="images/1.png" style="width: 1.8rem;"></div><div class="item-inner"><div class="item-title-row"><div class="item-title index">' + item.title + '</div><div class="item-after">已有' + item.member + '人参与</div></div><div class="item-text">' + item.content + '</div></div></a></li>'
               )
             });
           });

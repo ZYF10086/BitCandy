@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>服务器错误</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -42,7 +41,7 @@
         </a>
       </nav>
       <div class="content">
-          <center><img class="bit-img error" src="images/6.png"></center>            
+          <center><img class="bit-img error" src="images/5.png"></center>            
           <p><center><a class="button back error button-big button-round mistake" style="width:40%">点击返回</a></center></p>          
       </div>
     </div>
