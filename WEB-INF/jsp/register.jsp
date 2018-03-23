@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>邮箱注册</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -29,7 +28,7 @@
 
 
       <div class="content">
-        <img class="bit-img" src="https://dummyimage.com/375x150">
+        <!-- <img class="bit-img" src="https://dummyimage.com/375x150"> -->
         <form method="post" novalidate>
           <div class="list-block">
             <ul>
@@ -95,7 +94,6 @@
         var repwd = $("input[name='repassword']").val();
         var submit = $("input[type='button']");
         var Reg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-        // var reg=/^[1-9]\d*$|^0$/;
         if (Reg.test(email) && pwd != "" && repwd != "") {
           submit.removeClass("disabled");
           submit.removeAttr("disabled");
