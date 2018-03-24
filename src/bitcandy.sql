@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-20 22:12:05
+Date: 2018-03-24 22:09:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,10 +36,10 @@ CREATE TABLE `activity` (
 -- ----------------------------
 INSERT INTO `activity` VALUES ('1', '分布式操作系统，BM大作', '000', '2018-09-22 00:00:00', 'EOS', '1', '20', '30');
 INSERT INTO `activity` VALUES ('2', '比特币交易平台，潜力无限', '000', '2018-09-11 00:00:00', 'BIG', '1', '50', '100');
-INSERT INTO `activity` VALUES ('3', '小猪天祥', '000', '2018-09-05 00:00:00', 'PRS', '0', '30', '150');
-INSERT INTO `activity` VALUES ('4', '张艺van的vans', '000', '2018-07-05 00:00:00', 'BTC', '0', '20', '120');
-INSERT INTO `activity` VALUES ('5', 'aaaaaaaa', '000', '2018-07-05 00:00:00', 'BTC', '0', '55', '42');
-INSERT INTO `activity` VALUES ('6', 'BBBBBBBB', '000', '2018-07-05 00:00:00', 'BTC', '0', '42', '85');
+INSERT INTO `activity` VALUES ('3', '比特币交易平台', '000', '2018-09-05 00:00:00', 'PRS', '0', '30', '150');
+INSERT INTO `activity` VALUES ('4', '潜力无限', '000', '2018-07-05 00:00:00', 'BTC', '0', '20', '120');
+INSERT INTO `activity` VALUES ('5', '分布式操作系统', '000', '2018-07-05 00:00:00', 'BTC', '0', '55', '42');
+INSERT INTO `activity` VALUES ('6', 'BM大作', '000', '2018-07-05 00:00:00', 'BTC', '0', '42', '85');
 
 -- ----------------------------
 -- Table structure for app_resource
@@ -93,11 +93,12 @@ CREATE TABLE `user` (
   `email_activated` int(11) NOT NULL DEFAULT '0',
   `regist_time` datetime NOT NULL,
   `active_key` varchar(100) NOT NULL,
+  `ip` varchar(400) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '202CB962AC59075B964B07152D234B70', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf');
-INSERT INTO `user` VALUES ('710889210@qq.com', null, 'BCBE3365E6AC95EA2C0343A2395834DD', '0', '1', '2018-03-18 20:31:55', '096D46464FFFF4A29FBFDA723FAB7FB0');
+INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '202CB962AC59075B964B07152D234B70', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf', '');
+INSERT INTO `user` VALUES ('710889210@qq.com', null, 'B527D1E826A99F20CFE0A5966C1A557A', '0', '0', '2018-03-24 21:44:02', '096D46464FFFF4A29FBFDA723FAB7FB0', '{\"address\":\"CN|浙江|杭州|None|CMNET|0|0\",\"content\":{\"address_detail\":{\"province\":\"浙江省\",\"city\":\"杭州市\",\"district\":\"\",\"street\":\"\",\"street_number\":\"\",\"city_code\":179},\"address\":\"浙江省杭州市\",\"point\":{\"y\":\"3515188.13\",\"x\":\"13382905.27\"}},\"status\":0}');

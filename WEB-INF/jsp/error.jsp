@@ -22,27 +22,27 @@
   </head>
 
   <body>
-    <div class="page" id="index">
+    <div class="page bit" id="index">
       <header class="bar bit bar-nav bit">
         <h1 class="title bit"></h1>
       </header>
       <nav class="bar bar-tab">
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="/BitCandy">
           <span class="icon icon-gift"></span>
           <span class="tab-label">糖果</span>
         </a>
-        <a class="tab-item external" href="#">
+        <a class="tab-item" href="information">
           <span class="icon icon-home"></span>
           <span class="tab-label">比特学堂</span>
         </a>
-        <a class="tab-item external" href="#">
+        <a class="tab-item external" href="mine">
           <span class="icon icon-me"></span>
           <span class="tab-label">我的</span>
         </a>
       </nav>
       <div class="content">
           <center><img class="bit-img error" src="images/5.png"></center>            
-          <p><center><a class="button back error button-big button-round mistake" style="width:40%">点击返回</a></center></p>          
+          <p><center><a class="button error button-big button-round mistake external" style="width:40%" onclick="history.back()">点击返回</a></center></p>          
       </div>
     </div>
     <script src="js/zepto.min.js"></script>
