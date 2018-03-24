@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-24 18:17:26
+Date: 2018-03-24 22:09:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -93,11 +93,12 @@ CREATE TABLE `user` (
   `email_activated` int(11) NOT NULL DEFAULT '0',
   `regist_time` datetime NOT NULL,
   `active_key` varchar(100) NOT NULL,
+  `ip` varchar(400) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '202CB962AC59075B964B07152D234B70', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf');
-INSERT INTO `user` VALUES ('710889210@qq.com', null, 'BCBE3365E6AC95EA2C0343A2395834DD', '0', '1', '2018-03-18 20:31:55', '096D46464FFFF4A29FBFDA723FAB7FB0');
+INSERT INTO `user` VALUES ('123@qq.com', '13758160292', '202CB962AC59075B964B07152D234B70', '0', '1', '2018-02-09 22:52:04', 'sdfsaddsafdsfadasf', '');
+INSERT INTO `user` VALUES ('710889210@qq.com', null, 'B527D1E826A99F20CFE0A5966C1A557A', '0', '0', '2018-03-24 21:44:02', '096D46464FFFF4A29FBFDA723FAB7FB0', '{\"address\":\"CN|浙江|杭州|None|CMNET|0|0\",\"content\":{\"address_detail\":{\"province\":\"浙江省\",\"city\":\"杭州市\",\"district\":\"\",\"street\":\"\",\"street_number\":\"\",\"city_code\":179},\"address\":\"浙江省杭州市\",\"point\":{\"y\":\"3515188.13\",\"x\":\"13382905.27\"}},\"status\":0}');
