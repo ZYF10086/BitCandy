@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-20 22:12:05
+Date: 2018-03-24 18:17:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,10 +36,10 @@ CREATE TABLE `activity` (
 -- ----------------------------
 INSERT INTO `activity` VALUES ('1', '分布式操作系统，BM大作', '000', '2018-09-22 00:00:00', 'EOS', '1', '20', '30');
 INSERT INTO `activity` VALUES ('2', '比特币交易平台，潜力无限', '000', '2018-09-11 00:00:00', 'BIG', '1', '50', '100');
-INSERT INTO `activity` VALUES ('3', '小猪天祥', '000', '2018-09-05 00:00:00', 'PRS', '0', '30', '150');
-INSERT INTO `activity` VALUES ('4', '张艺van的vans', '000', '2018-07-05 00:00:00', 'BTC', '0', '20', '120');
-INSERT INTO `activity` VALUES ('5', 'aaaaaaaa', '000', '2018-07-05 00:00:00', 'BTC', '0', '55', '42');
-INSERT INTO `activity` VALUES ('6', 'BBBBBBBB', '000', '2018-07-05 00:00:00', 'BTC', '0', '42', '85');
+INSERT INTO `activity` VALUES ('3', '比特币交易平台', '000', '2018-09-05 00:00:00', 'PRS', '0', '30', '150');
+INSERT INTO `activity` VALUES ('4', '潜力无限', '000', '2018-07-05 00:00:00', 'BTC', '0', '20', '120');
+INSERT INTO `activity` VALUES ('5', '分布式操作系统', '000', '2018-07-05 00:00:00', 'BTC', '0', '55', '42');
+INSERT INTO `activity` VALUES ('6', 'BM大作', '000', '2018-07-05 00:00:00', 'BTC', '0', '42', '85');
 
 -- ----------------------------
 -- Table structure for app_resource
